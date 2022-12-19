@@ -1,0 +1,74 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://UI/menu_style.tres" type="StyleBox" id=1]
+[ext_resource path="res://UI/roboto_mono_36.tres" type="DynamicFont" id=2]
+[ext_resource path="res://UI/PauseScreen.gd" type="Script" id=3]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0, 0, 0.25098 )
+
+[node name="PauseScreen" type="CanvasLayer"]
+pause_mode = 2
+layer = 2
+script = ExtResource( 3 )
+
+[node name="Overlay" type="PanelContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="PauseMenuContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="PauseMenu" type="PanelContainer" parent="PauseMenuContainer"]
+margin_left = 343.0
+margin_top = 157.0
+margin_right = 681.0
+margin_bottom = 443.0
+custom_styles/panel = ExtResource( 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="PauseMenuContainer/PauseMenu"]
+margin_right = 338.0
+margin_bottom = 286.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+
+[node name="Rows" type="VBoxContainer" parent="PauseMenuContainer/PauseMenu/MarginContainer"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 318.0
+margin_bottom = 266.0
+custom_constants/separation = 20
+
+[node name="PauseTitle" type="Label" parent="PauseMenuContainer/PauseMenu/MarginContainer/Rows"]
+margin_right = 298.0
+margin_bottom = 48.0
+custom_fonts/font = ExtResource( 2 )
+text = "PAUSED"
+align = 1
+
+[node name="HSeparator" type="HSeparator" parent="PauseMenuContainer/PauseMenu/MarginContainer/Rows"]
+margin_top = 68.0
+margin_right = 298.0
+margin_bottom = 98.0
+custom_constants/separation = 30
+
+[node name="ContinueButton" type="Button" parent="PauseMenuContainer/PauseMenu/MarginContainer/Rows"]
+margin_top = 118.0
+margin_right = 298.0
+margin_bottom = 172.0
+custom_fonts/font = ExtResource( 2 )
+text = " CONTINUE "
+
+[node name="QuitButton" type="Button" parent="PauseMenuContainer/PauseMenu/MarginContainer/Rows"]
+margin_top = 192.0
+margin_right = 298.0
+margin_bottom = 246.0
+custom_fonts/font = ExtResource( 2 )
+text = " SAVE + QUIT "
+
+[connection signal="pressed" from="PauseMenuContainer/PauseMenu/MarginContainer/Rows/ContinueButton" to="." method="_on_ContinueButton_pressed"]
+[connection signal="pressed" from="PauseMenuContainer/PauseMenu/MarginContainer/Rows/QuitButton" to="." method="_on_QuitButton_pressed"]

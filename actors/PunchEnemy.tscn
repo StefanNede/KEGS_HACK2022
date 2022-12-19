@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/self-made/characters/Elf.png" type="Texture" id=1]
+[ext_resource path="res://actors/Health.tscn" type="PackedScene" id=2]
+[ext_resource path="res://actors/PunchEnemy.gd" type="Script" id=3]
+[ext_resource path="res://actors/PunchAI.gd" type="Script" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 18, 22.5 )
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 1190.37
+
+[node name="PunchEnemy" type="KinematicBody2D" groups=["enemy"]]
+script = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="."]
+rotation = 3.14159
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 5, 5, 37, 38 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -1.5 )
+shape = SubResource( 1 )
+
+[node name="Health" parent="." instance=ExtResource( 2 )]
+
+[node name="PunchAI" type="Node2D" parent="."]
+script = ExtResource( 4 )
+
+[node name="PlayerDetectionZonePuncher" type="Area2D" parent="PunchAI"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PunchAI/PlayerDetectionZonePuncher"]
+shape = SubResource( 2 )
+
+[connection signal="body_entered" from="PunchAI/PlayerDetectionZonePuncher" to="PunchAI" method="_on_PlayerDetectionZonePuncher_body_entered"]

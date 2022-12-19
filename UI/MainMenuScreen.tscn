@@ -1,0 +1,72 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://UI/roboto_mono_64.tres" type="DynamicFont" id=1]
+[ext_resource path="res://UI/roboto_mono_36.tres" type="DynamicFont" id=2]
+[ext_resource path="res://UI/MainMenuScreen.gd" type="Script" id=3]
+[ext_resource path="res://UI/menu_style.tres" type="StyleBox" id=4]
+
+[node name="MainMenuScreen" type="CanvasLayer"]
+pause_mode = 2
+script = ExtResource( 3 )
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = ExtResource( 4 )
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+margin_right = 1024.0
+margin_bottom = 600.0
+custom_constants/margin_right = 40
+custom_constants/margin_top = 40
+custom_constants/margin_left = 40
+custom_constants/margin_bottom = 40
+
+[node name="Rows" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+margin_left = 40.0
+margin_top = 40.0
+margin_right = 984.0
+margin_bottom = 560.0
+custom_constants/separation = 100
+
+[node name="Title" type="Label" parent="PanelContainer/MarginContainer/Rows"]
+margin_right = 944.0
+margin_bottom = 86.0
+custom_fonts/font = ExtResource( 1 )
+text = "KILLING SANTA"
+align = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="PanelContainer/MarginContainer/Rows"]
+margin_top = 186.0
+margin_right = 944.0
+margin_bottom = 428.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/Rows/CenterContainer"]
+margin_left = 356.0
+margin_right = 588.0
+margin_bottom = 242.0
+custom_constants/separation = 40
+
+[node name="PlayCampaign" type="Button" parent="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer"]
+margin_right = 232.0
+margin_bottom = 54.0
+custom_fonts/font = ExtResource( 2 )
+text = " CAMPAIGN "
+
+[node name="PlaySurvival" type="Button" parent="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer"]
+margin_top = 94.0
+margin_right = 232.0
+margin_bottom = 148.0
+custom_fonts/font = ExtResource( 2 )
+text = " SURVIVAL "
+
+[node name="Quit" type="Button" parent="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer"]
+margin_top = 188.0
+margin_right = 232.0
+margin_bottom = 242.0
+custom_fonts/font = ExtResource( 2 )
+text = " QUIT "
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer/PlayCampaign" to="." method="_on_PlayCampaign_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer/PlaySurvival" to="." method="_on_PlaySurvival_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer/Quit" to="." method="_on_Quit_pressed"]
