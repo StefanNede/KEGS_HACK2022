@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://ImpactManager.gd" type="Script" id=1]
 [ext_resource path="res://assets/self-made/tilesets/TilesA2.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://actors/ShooterEnemy.tscn" type="PackedScene" id=6]
 [ext_resource path="res://actors/PunchEnemy.tscn" type="PackedScene" id=7]
 [ext_resource path="res://actors/Player.tscn" type="PackedScene" id=8]
+[ext_resource path="res://actors/Reindeer.tscn" type="PackedScene" id=9]
 
 [sub_resource type="TileSet" id=51]
 0/name = "TilesA2.png 0"
@@ -146,3 +147,6 @@ script = ExtResource( 3 )
 script = ExtResource( 1 )
 
 [node name="GUI" parent="." instance=ExtResource( 5 )]
+
+[node name="Reindeer" parent="." instance=ExtResource( 9 )]
+position = Vector2( 468, 168 )

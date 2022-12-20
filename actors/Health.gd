@@ -9,4 +9,4 @@ func _ready():
 	pass # Replace with function body.
 
 func set_health(new_health: int) -> void:
-	health = clamp(new_health, 0, 100) # makes sure health is between 0 and 100, so always a valid value
+	health = new_health # makes sure health is between 0 and 100, so always a valid value

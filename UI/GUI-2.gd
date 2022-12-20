@@ -19,6 +19,9 @@ func set_player(player: Player):
 	player.connect("player_health_changed", self, "set_new_health")
 	player.current_weapon.connect("gun_ammo_changed", self, "set_current_ammo")
 	player.connect("pistol_ammo_left_changed", self, "set_ammo_left")
+	
+	# set max value to the value the player starts with
+	health_bar.max_value = player.health_stat.health
 
 func set_new_health(new_health: int) -> void:
 	var bar_style = health_bar.get("custom_styles/fg")

@@ -7,8 +7,11 @@ export (int) var speed = 150
 onready var health_stat = $Health
 onready var ai: Punch_AI = $PunchAI
 
+var starting_health := 60
+
 func _ready():
 	ai.initialise(self)
+	health_stat.health = starting_health
 
 func handle_hit() -> void:
 	health_stat.health -= 20 # automatically calls the settersd

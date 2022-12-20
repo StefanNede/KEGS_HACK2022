@@ -19,6 +19,7 @@ var ammo_left: int = 30
 var mag_size: int = 10
 
 func _ready() -> void:
+	health_stat.health = 200
 	current_weapon.connect("weapon_out_of_ammo", self, "handle_reload")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -63,6 +64,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func handle_hit() -> void:
+	print("player health: " + str(health_stat.health))
 	health_stat.health -= 20 # automatically calls the setter
 	emit_signal("player_health_changed", health_stat.health)
 	if health_stat.health <= 0:

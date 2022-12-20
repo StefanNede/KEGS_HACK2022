@@ -9,9 +9,11 @@ onready var ai: Shooter_AI = $AI
 onready var weapon: ShootWeapon = $Weapon
 
 var mag_size:int = 10
+var starting_health := 100
 
 func _ready():
 	ai.initialise(self, weapon)
+	health_stat.health = starting_health
 	weapon.connect("weapon_out_of_ammo", self, "handle_reload")
 	
 func handle_reload():
@@ -26,6 +28,7 @@ func velocity_towards(location: Vector2) -> Vector2:
 	return global_position.direction_to(location) * speed
 
 func handle_hit() -> void:
+	print("shooter health: " + str(health_stat.health))
 	health_stat.health -= 20
 	if health_stat.health <= 0:
 		queue_free()
