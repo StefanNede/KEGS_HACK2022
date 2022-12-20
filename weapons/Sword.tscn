@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/self-made/weapons/Candy_Cane.png" type="Texture" id=1]
+[ext_resource path="res://weapons/Sword.gd" type="Script" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Candy Cane Sword"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("CandyCane:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 3, 1 ),
+"update": 1,
+"values": [ 0, 1, 0 ]
+}
+
+[node name="Sword" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="CandyCane" type="Sprite" parent="."]
+position = Vector2( 0, -1 )
+rotation = 1.5708
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 1 )
+hframes = 2
+region_rect = Rect2( -20, -16, 183, 89 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+"anims/Candy Cane Sword" = SubResource( 1 )
