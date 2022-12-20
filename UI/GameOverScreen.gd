@@ -12,7 +12,7 @@ func set_title(win: bool):
 
 func _on_Restart_pressed():
 	get_tree().paused = false
-	get_tree().change_scene("res://Main.tscn")
+	get_tree().change_scene("res://levels/Level2.tscn")
 
 func _on_Quit_pressed():
 	get_tree().quit()

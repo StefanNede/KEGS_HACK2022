@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://weapons/MeleeWeapon.gd" type="Script" id=1]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Punch"
+
+[node name="MeleeWeapon" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Punch = SubResource( 1 )
+
+[node name="EndOfPunch" type="Position2D" parent="."]
+
+[node name="AttackCooldown" type="Timer" parent="."]
+wait_time = 0.001

@@ -1,13 +1,13 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://assets/topdown-shooter/Spritesheet/spritesheet_characters.png" type="Texture" id=1]
+[ext_resource path="res://assets/self-made/characters/Elf.png" type="Texture" id=1]
 [ext_resource path="res://weapons/ShootWeapon.tscn" type="PackedScene" id=2]
 [ext_resource path="res://actors/ShooterEnemy.gd" type="Script" id=3]
 [ext_resource path="res://actors/Health.tscn" type="PackedScene" id=4]
 [ext_resource path="res://actors/ShooterAI.gd" type="Script" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 23.25, 24 )
+extents = Vector2( 18, 18 )
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 135.033
@@ -18,18 +18,20 @@ script = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( -9, 0 )
+rotation = 3.14159
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 392, 132, 33, 43 )
+region_rect = Rect2( 5, 5, 37, 38 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -8.75, 0 )
+position = Vector2( -9, 0 )
 shape = SubResource( 1 )
 
 [node name="Health" parent="." instance=ExtResource( 4 )]
 
 [node name="Weapon" parent="." instance=ExtResource( 2 )]
-position = Vector2( 12, 12 )
+position = Vector2( 12, 9 )
+scale = Vector2( 0.5, 0.5 )
 
 [node name="AI" type="Node2D" parent="."]
 script = ExtResource( 5 )
