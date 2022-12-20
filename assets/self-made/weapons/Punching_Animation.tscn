@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/self-made/weapons/Boxing_Gloves.png" type="Texture" id=1]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Punching"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Boxing Frames/BoxingGloves:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4 ]
+}
+
+[node name="2D Scene" type="Node2D"]
+
+[node name="Punch Animation" type="AnimationPlayer" parent="."]
+anims/Punching = SubResource( 1 )
+
+[node name="Boxing Frames" type="KinematicBody2D" parent="."]
+
+[node name="BoxingGloves" type="Sprite" parent="Boxing Frames"]
+position = Vector2( 56.5, -39 )
+scale = Vector2( 1.22, 1.44 )
+texture = ExtResource( 1 )
+hframes = 5
