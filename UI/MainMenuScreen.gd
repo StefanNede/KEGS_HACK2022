@@ -2,7 +2,7 @@ extends CanvasLayer
 
 
 func _on_PlayCampaign_pressed():
-	get_tree().change_scene("res://levels/Level2.tscn")
+	get_tree().change_scene("res://UI/LevelSelectScreen.tscn")
 
 
 func _on_PlaySurvival_pressed():
