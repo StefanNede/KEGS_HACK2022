@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://actors/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/topdown-shooter/Spritesheet/spritesheet_characters.png" type="Texture" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://weapons/Fists.tscn" type="PackedScene" id=4]
 [ext_resource path="res://actors/Health.tscn" type="PackedScene" id=5]
 [ext_resource path="res://weapons/Sword.tscn" type="PackedScene" id=6]
+[ext_resource path="res://weapons/GrenadeLauncher.gd" type="Script" id=7]
+[ext_resource path="res://weapons/GrenadeLauncher.tscn" type="PackedScene" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 23.25, 24 )
@@ -26,13 +28,21 @@ shape = SubResource( 1 )
 
 [node name="Health" parent="." instance=ExtResource( 5 )]
 
-[node name="Pistol" parent="." instance=ExtResource( 3 )]
-visible = false
-position = Vector2( 19, 11 )
+[node name="WeaponManager" type="Node2D" parent="."]
 
-[node name="Fists" parent="." instance=ExtResource( 4 )]
+[node name="Fists" parent="WeaponManager" instance=ExtResource( 4 )]
 visible = false
 position = Vector2( 10, -1 )
 
-[node name="Sword" parent="." instance=ExtResource( 6 )]
+[node name="Sword" parent="WeaponManager" instance=ExtResource( 6 )]
+visible = false
 position = Vector2( 16, 11 )
+
+[node name="Pistol" parent="WeaponManager" instance=ExtResource( 3 )]
+visible = false
+position = Vector2( 19, 11 )
+
+[node name="GrenadeLauncher" parent="WeaponManager" instance=ExtResource( 8 )]
+visible = false
+position = Vector2( 16, 11 )
+script = ExtResource( 7 )

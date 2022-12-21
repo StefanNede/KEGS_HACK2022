@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-class_name GUI2
+class_name GUI3
 
 onready var health_bar = $MarginContainer/Rows/BottomRow/HealthSection/HealthBar
 onready var current_ammo = $MarginContainer/Rows/TopRow/AmmoSection/CurrentAmmo
@@ -11,17 +11,27 @@ var player: Player
 
 func set_player(player: Player):
 	self.player = player
+	player.connect("weapon_changed", self, "handle_weapon_changed")
 	
 	set_new_health(player.health_stat.health)
-	set_current_ammo(player.current_weapon.current_ammo)
-	set_ammo_left(player.ammo_left)
+	set_current_ammo(0)
+	set_ammo_left(0)
 	
 	player.connect("player_health_changed", self, "set_new_health")
-	player.current_weapon.connect("gun_ammo_changed", self, "set_current_ammo")
-	player.connect("pistol_ammo_left_changed", self, "set_ammo_left")
 	
 	# set max value to the value the player starts with
 	health_bar.max_value = player.health_stat.health
+
+func handle_weapon_changed(new_weapon: Node2D) -> void:
+	# changes the bit at the bottom that highlights the weapon currently in use and the ammo section
+	if new_weapon.get("current_ammo"):
+		set_current_ammo(new_weapon.current_ammo)
+		set_ammo_left(player.ammo_left)
+		new_weapon.connect("gun_ammo_changed", self, "set_current_ammo")
+		player.connect("pistol_ammo_left_changed", self, "set_ammo_left")
+	else:
+		set_current_ammo(0)
+		set_ammo_left(0)
 
 func set_new_health(new_health: int) -> void:
 	var bar_style = health_bar.get("custom_styles/fg")

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://UI/roboto_mono_36.tres" type="DynamicFont" id=1]
-[ext_resource path="res://UI/GUI-2.gd" type="Script" id=2]
+[ext_resource path="res://UI/GUI-3.gd" type="Script" id=2]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.360784, 0.0941176, 0.0941176, 1 )

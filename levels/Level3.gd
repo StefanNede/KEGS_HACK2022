@@ -6,15 +6,19 @@ const PauseScreen = preload("res://UI/PauseScreen.tscn")
 
 onready var bullet_manager = $BulletManager
 onready var player: Player = $Player
-onready var gui: GUI2 = $GUI
+onready var gui: GUI3 = $GUI
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	randomize() # change random number seed every time we play so that random movements don't always go in the same sequence
-	GlobalSignals.connect("bullet_fired", bullet_manager, "handle_bullet_spawned")
-	
+	connectBullets()
 	spawn_player()
+
+func connectBullets() -> void:
+	for weapon in player.weapons_available:
+		if weapon.get("max_ammo"):
+			GlobalSignals.connect("bullet_fired", bullet_manager, "handle_bullet_spawned")
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):

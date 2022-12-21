@@ -10,7 +10,7 @@ onready var gui: GUI1 = $GUI
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	randomize() # change random number seed every time we play so that random movements don't always go in the same sequence
-	
+
 	spawn_player()
 
 func _unhandled_input(event: InputEvent) -> void:
