@@ -2,8 +2,8 @@ extends CanvasLayer
 
 class_name GUI1
 
-onready var health_bar = $MarginContainer/Rows/BottomRow/HealthSection/HealthBar
-onready var health_tween = $MarginContainer/Rows/BottomRow/HealthSection/HealthTween
+onready var health_bar = $MarginContainer/Rows/TopRow/HealthSection/HealthBar
+onready var health_tween = $MarginContainer/Rows/TopRow/HealthSection/HealthTween
 
 var player: Player
 
@@ -13,7 +13,6 @@ func set_player(player: Player):
 	set_new_health(player.health_stat.health)
 	
 	player.connect("player_health_changed", self, "set_new_health")
-
 
 func set_new_health(new_health: int) -> void:
 	var bar_style = health_bar.get("custom_styles/fg")

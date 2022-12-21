@@ -2,10 +2,10 @@ extends CanvasLayer
 
 class_name GUI3
 
-onready var health_bar = $MarginContainer/Rows/BottomRow/HealthSection/HealthBar
+onready var health_bar = $MarginContainer/Rows/TopRow/HealthSection/HealthBar
 onready var current_ammo = $MarginContainer/Rows/TopRow/AmmoSection/CurrentAmmo
 onready var ammo_left = $MarginContainer/Rows/TopRow/AmmoSection/AmmoLeft
-onready var health_tween = $MarginContainer/Rows/BottomRow/HealthSection/HealthTween
+onready var health_tween = $MarginContainer/Rows/TopRow/HealthSection/HealthTween
 
 var player: Player
 
