@@ -5,6 +5,8 @@ class_name GUI1
 onready var health_bar = $MarginContainer/Rows/TopRow/HealthSection/HealthBar
 onready var health_tween = $MarginContainer/Rows/TopRow/HealthSection/HealthTween
 
+onready var inventory_bar: Inventory_Bar = $MarginContainer/Rows/BottomRow/InventoryBar
+
 var player: Player
 
 func set_player(player: Player):

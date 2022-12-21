@@ -7,6 +7,8 @@ onready var current_ammo = $MarginContainer/Rows/TopRow/AmmoSection/CurrentAmmo
 onready var ammo_left = $MarginContainer/Rows/TopRow/AmmoSection/AmmoLeft
 onready var health_tween = $MarginContainer/Rows/TopRow/HealthSection/HealthTween
 
+onready var inventory_bar: Inventory_Bar = $MarginContainer/Rows/BottomRow/InventoryBar
+
 var player: Player
 
 func set_player(player: Player):
@@ -21,8 +23,16 @@ func set_player(player: Player):
 	
 	# set max value to the value the player starts with
 	health_bar.max_value = player.health_stat.health
+	
+func getIndex(weapon):
+	for w in range(len(player.weapons_available)):
+		if weapon == player.weapons_available[w]:
+			return w
+	return -1
 
 func handle_weapon_changed(new_weapon: Node2D) -> void:
+	var weaponIndex = getIndex(new_weapon)+1
+	inventory_bar.weapon_changed(weaponIndex)
 	# changes the bit at the bottom that highlights the weapon currently in use and the ammo section
 	if new_weapon.get("current_ammo"):
 		set_current_ammo(new_weapon.current_ammo)

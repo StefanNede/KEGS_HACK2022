@@ -30,6 +30,11 @@ _global_script_classes=[ {
 "path": "res://actors/Health.gd"
 }, {
 "base": "Node2D",
+"class": "Inventory_Bar",
+"language": "GDScript",
+"path": "res://UI/InventoryBar.gd"
+}, {
+"base": "Node2D",
 "class": "MeleeWeapon",
 "language": "GDScript",
 "path": "res://weapons/MeleeWeapon.gd"
@@ -79,6 +84,7 @@ _global_script_class_icons={
 "GUI1": "",
 "GUI3": "",
 "Health": "",
+"Inventory_Bar": "",
 "MeleeWeapon": "",
 "Player": "",
 "PunchEnemy": "",
