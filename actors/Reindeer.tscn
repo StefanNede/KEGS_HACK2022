@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/self-made/characters/Reindeer.png" type="Texture" id=1]
 [ext_resource path="res://actors/Health.tscn" type="PackedScene" id=2]
 [ext_resource path="res://actors/Reindeer.gd" type="Script" id=3]
+[ext_resource path="res://actors/ReindeerAI.gd" type="Script" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 36, 15 )
@@ -22,3 +23,10 @@ shape = SubResource( 1 )
 [node name="Health" parent="." instance=ExtResource( 2 )]
 
 [node name="AI" type="Node2D" parent="."]
+script = ExtResource( 4 )
+
+[node name="Timer" type="Timer" parent="AI"]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="timeout" from="AI/Timer" to="AI" method="_on_Timer_timeout"]

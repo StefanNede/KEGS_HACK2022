@@ -55,6 +55,11 @@ _global_script_classes=[ {
 "path": "res://actors/Reindeer.gd"
 }, {
 "base": "Node2D",
+"class": "Reindeer_AI",
+"language": "GDScript",
+"path": "res://actors/ReindeerAI.gd"
+}, {
+"base": "Node2D",
 "class": "ShootWeapon",
 "language": "GDScript",
 "path": "res://weapons/ShootWeapon.gd"
@@ -79,6 +84,7 @@ _global_script_class_icons={
 "PunchEnemy": "",
 "Punch_AI": "",
 "Reindeer": "",
+"Reindeer_AI": "",
 "ShootWeapon": "",
 "Shooter_AI": "",
 "Shooter_Enemy": ""

@@ -149,4 +149,4 @@ script = ExtResource( 2 )
 [node name="GUI" parent="." instance=ExtResource( 8 )]
 
 [node name="Reindeer" parent="." instance=ExtResource( 9 )]
-position = Vector2( 468, 168 )
+position = Vector2( 549, 243 )

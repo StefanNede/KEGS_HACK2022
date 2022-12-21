@@ -68,6 +68,7 @@ percent_visible = false
 margin_left = 204.0
 margin_right = 944.0
 margin_bottom = 98.0
+mouse_filter = 2
 size_flags_horizontal = 3
 alignment = 2
 
