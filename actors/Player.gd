@@ -49,6 +49,19 @@ func getWeaponAvailable(level: int) -> Array:
 			weapons.append($WeaponManager/Fists)
 			weapons.append($WeaponManager/Sword)
 			weapons.append($WeaponManager/Pistol)
+		4:
+			# fists, swords, pistol, grenade launcher
+			weapons.append($WeaponManager/Fists)
+			weapons.append($WeaponManager/Sword)
+			weapons.append($WeaponManager/Pistol)
+			weapons.append($WeaponManager/GrenadeLauncher)
+		5:
+			# fists, swords, pistol, grenade launcher
+			weapons.append($WeaponManager/Fists)
+			weapons.append($WeaponManager/Sword)
+			weapons.append($WeaponManager/Pistol)
+			weapons.append($WeaponManager/GrenadeLauncher)
+			weapons.append($WeaponManager/RudolphNose)
 		_: 
 			pass
 	

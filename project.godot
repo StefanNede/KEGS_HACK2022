@@ -15,14 +15,9 @@ _global_script_classes=[ {
 "path": "res://weapons/Bullet.gd"
 }, {
 "base": "CanvasLayer",
-"class": "GUI1",
+"class": "Gui",
 "language": "GDScript",
-"path": "res://UI/GUI-1.gd"
-}, {
-"base": "CanvasLayer",
-"class": "GUI3",
-"language": "GDScript",
-"path": "res://UI/GUI-3.gd"
+"path": "res://UI/GUI.gd"
 }, {
 "base": "Node2D",
 "class": "Health",
@@ -81,8 +76,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Bullet": "",
-"GUI1": "",
-"GUI3": "",
+"Gui": "",
 "Health": "",
 "Inventory_Bar": "",
 "MeleeWeapon": "",

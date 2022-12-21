@@ -1,23 +1,35 @@
 extends CanvasLayer
 
-class_name GUI3
+class_name Gui
 
 onready var health_bar = $MarginContainer/Rows/TopRow/HealthSection/HealthBar
 onready var current_ammo = $MarginContainer/Rows/TopRow/AmmoSection/CurrentAmmo
 onready var ammo_left = $MarginContainer/Rows/TopRow/AmmoSection/AmmoLeft
 onready var health_tween = $MarginContainer/Rows/TopRow/HealthSection/HealthTween
+onready var ammo_section = $MarginContainer/Rows/TopRow/AmmoSection
 
 onready var inventory_bar: Inventory_Bar = $MarginContainer/Rows/BottomRow/InventoryBar
 
 var player: Player
+var level: int
+
+func _ready() -> void:
+	level = getLevel()
+
+func getLevel() -> int:
+	var current_scene: String = get_tree().get_current_scene().get_name()
+	var current_level: int = int(current_scene[current_scene.length()-1])
+	return current_level
 
 func set_player(player: Player):
 	self.player = player
 	player.connect("weapon_changed", self, "handle_weapon_changed")
 	
 	set_new_health(player.health_stat.health)
-	set_current_ammo(0)
-	set_ammo_left(0)
+	if level >= 3:
+		ammo_section.visible = true
+		set_current_ammo(0)
+		set_ammo_left(0)
 	
 	player.connect("player_health_changed", self, "set_new_health")
 	

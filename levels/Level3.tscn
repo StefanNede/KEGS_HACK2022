@@ -7,7 +7,7 @@
 [ext_resource path="res://actors/ShooterEnemy.tscn" type="PackedScene" id=5]
 [ext_resource path="res://actors/PunchEnemy.tscn" type="PackedScene" id=6]
 [ext_resource path="res://actors/Player.tscn" type="PackedScene" id=7]
-[ext_resource path="res://UI/GUI-3.tscn" type="PackedScene" id=8]
+[ext_resource path="res://UI/GUI.tscn" type="PackedScene" id=8]
 [ext_resource path="res://actors/Reindeer.tscn" type="PackedScene" id=9]
 
 [sub_resource type="TileSet" id=51]

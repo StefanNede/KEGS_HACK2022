@@ -3,7 +3,7 @@
 [ext_resource path="res://ImpactManager.gd" type="Script" id=1]
 [ext_resource path="res://assets/self-made/tilesets/TilesA2.png" type="Texture" id=2]
 [ext_resource path="res://UI/GUI.tscn" type="PackedScene" id=3]
-[ext_resource path="res://levels/Level1.gd" type="Script" id=4]
+[ext_resource path="res://levels/Level2.gd" type="Script" id=4]
 [ext_resource path="res://actors/PunchEnemy.tscn" type="PackedScene" id=7]
 [ext_resource path="res://actors/Player.tscn" type="PackedScene" id=8]
 
@@ -99,7 +99,7 @@
 
 [sub_resource type="TileSet" id=53]
 
-[node name="Level1" type="Node2D"]
+[node name="Level2" type="Node2D"]
 position = Vector2( 3, 0 )
 script = ExtResource( 4 )
 
