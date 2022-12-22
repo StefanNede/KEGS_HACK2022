@@ -8,11 +8,15 @@ onready var health_stat = $Health
 onready var ai: Punch_AI = $PunchAI
 onready var sprite = $Sprite
 
+onready var health_bar = $HealthBar
+
 var starting_health := 60
 
 func _ready():
 	ai.initialise(self)
 	health_stat.health = starting_health
+	health_bar.max_value = starting_health
+	health_bar.value = starting_health
 
 func _physics_process(delta: float) -> void:
 	pass
@@ -35,6 +39,7 @@ func get_damage_dealt(weapon: String) -> int:
 func handle_hit(weapon: String) -> void:
 	var damage_dealt := get_damage_dealt(weapon)
 	health_stat.health -= damage_dealt # automatically calls the setters
+	health_bar.value = health_stat.health
 	if health_stat.health <= 0:
 		GlobalSignals.emit_signal("enemy_died")
 		queue_free()

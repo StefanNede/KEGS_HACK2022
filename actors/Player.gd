@@ -14,6 +14,7 @@ export (int) var speed = 300
 # could have a stat node for when we have more
 onready var health_stat = $Health
 onready var collision_shape = $CollisionShape2D
+onready var hurt_audio = $HurtAudio
 
 var ammo_left: int = 30
 var mag_size: int = 10
@@ -165,6 +166,7 @@ func get_damage_dealt(weapon: String) -> int:
 func handle_hit(weapon: String) -> void:
 	print("player health: " + str(health_stat.health))
 	health_stat.health -= 20 # automatically calls the setter
+	hurt_audio.play()
 	emit_signal("player_health_changed", health_stat.health)
 	if health_stat.health <= 0:
 		die()

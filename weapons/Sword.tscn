@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/self-made/weapons/Candy_Cane.png" type="Texture" id=1]
 [ext_resource path="res://weapons/Sword.gd" type="Script" id=2]
+[ext_resource path="res://assets/audio/slash.mp3" type="AudioStream" id=3]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 20.8333, 17.5 )
@@ -71,5 +72,8 @@ disabled = true
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 "anims/Candy Cane Sword" = SubResource( 1 )
 anims/RESET = SubResource( 3 )
+
+[node name="SlashAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
 
 [connection signal="body_entered" from="CandyCane/SwordHit" to="." method="_on_SwordHit_body_entered"]

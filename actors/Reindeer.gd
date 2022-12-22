@@ -4,6 +4,7 @@ class_name Reindeer
 
 onready var health_stat: Health = $Health
 onready var ai: Reindeer_AI = $AI
+onready var health_bar = $HealthBar
 
 var starting_health := 150
 var speed := 400
@@ -11,6 +12,8 @@ var speed := 400
 func _ready() -> void:
 	ai.initialise(self)
 	health_stat.health = starting_health
+	health_bar.max_value = starting_health
+	health_bar.value = starting_health
 
 func get_damage_dealt(weapon: String) -> int:
 	match weapon:
@@ -30,6 +33,7 @@ func get_damage_dealt(weapon: String) -> int:
 func handle_hit(weapon: String) -> void:
 	var damage_dealt := get_damage_dealt(weapon)
 	health_stat.health -= damage_dealt
+	health_bar.value = health_stat.health
 	if health_stat.health <= 0:
 		queue_free()
 

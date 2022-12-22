@@ -1,11 +1,13 @@
 extends Node2D
 
 onready var animation_player = $AnimationPlayer
+onready var audio = $PunchAudio
 
 var direction: Vector2 = Vector2.ZERO
 
 func shoot() -> void:
 	animation_player.play("Punching")
+	audio.play()
 
 func get_direction() -> void:
 	direction = ($BoxingGloves/FistHit/CollisionShape2D.global_position - global_position).normalized() # gets vector between these two

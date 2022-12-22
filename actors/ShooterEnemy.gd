@@ -8,12 +8,16 @@ onready var health_stat: Health = $Health
 onready var ai: Shooter_AI = $AI
 onready var weapon: ShootWeapon = $Weapon
 
+onready var health_bar = $HealthBar
+
 var mag_size:int = 10
 var starting_health := 100
 
 func _ready():
 	ai.initialise(self, weapon)
 	health_stat.health = starting_health
+	health_bar.max_value = starting_health
+	health_bar.value = starting_health
 	weapon.connect("weapon_out_of_ammo", self, "handle_reload")
 	
 func handle_reload():
@@ -45,5 +49,6 @@ func get_damage_dealt(weapon: String) -> int:
 func handle_hit(weapon: String) -> void:
 	var damage_dealt := get_damage_dealt(weapon)
 	health_stat.health -= damage_dealt
+	health_bar.value = health_stat.health
 	if health_stat.health <= 0:
 		queue_free()

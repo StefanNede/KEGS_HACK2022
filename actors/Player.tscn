@@ -6,7 +6,7 @@
 [ext_resource path="res://weapons/Fists.tscn" type="PackedScene" id=4]
 [ext_resource path="res://actors/Health.tscn" type="PackedScene" id=5]
 [ext_resource path="res://weapons/Sword.tscn" type="PackedScene" id=6]
-[ext_resource path="res://weapons/GrenadeLauncher.gd" type="Script" id=7]
+[ext_resource path="res://assets/audio/player_hurt.mp3" type="AudioStream" id=7]
 [ext_resource path="res://weapons/GrenadeLauncher.tscn" type="PackedScene" id=8]
 [ext_resource path="res://weapons/RudolphNose.gd" type="Script" id=9]
 [ext_resource path="res://weapons/RudolphNose.tscn" type="PackedScene" id=10]
@@ -47,9 +47,12 @@ position = Vector2( 19, 11 )
 [node name="GrenadeLauncher" parent="WeaponManager" instance=ExtResource( 8 )]
 visible = false
 position = Vector2( 16, 11 )
-script = ExtResource( 7 )
 
 [node name="RudolphNose" parent="WeaponManager" instance=ExtResource( 10 )]
 visible = false
 position = Vector2( 10, 11 )
 script = ExtResource( 9 )
+
+[node name="HurtAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 7 )
+volume_db = -10.0

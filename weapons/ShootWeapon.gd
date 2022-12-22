@@ -12,6 +12,8 @@ export (PackedScene) var Bullet
 onready var end_of_gun = $EndOfGun
 onready var attack_cooldown = $AttackCooldown
 onready var animation_player = $AnimationPlayer
+onready var audio = $ShotAudio
+onready var reload_audio = $ReloadAudio
 
 var max_ammo: int = 10
 var current_ammo: int = max_ammo setget set_current_ammo
@@ -19,6 +21,7 @@ var current_ammo: int = max_ammo setget set_current_ammo
 func start_reload(available_ammo):
 	self.max_ammo = available_ammo
 	animation_player.play("reload")
+	reload_audio.play()
 
 func _stop_reload():
 	current_ammo = max_ammo
@@ -46,6 +49,7 @@ func shoot():
 		# start attack cooldown again
 		attack_cooldown.start()
 		animation_player.play("muzzle_flash")
+		audio.play()
 		
 		# handle ammo
 		set_current_ammo(current_ammo - 1)

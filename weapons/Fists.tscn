@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/self-made/weapons/Boxing_Gloves.png" type="Texture" id=1]
 [ext_resource path="res://weapons/Fists.gd" type="Script" id=2]
+[ext_resource path="res://assets/audio/punch.mp3" type="AudioStream" id=3]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 15, 4.50003 )
@@ -71,5 +72,9 @@ disabled = true
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Punching = SubResource( 1 )
 anims/RESET = SubResource( 3 )
+
+[node name="PunchAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+pitch_scale = 1.2
 
 [connection signal="body_entered" from="BoxingGloves/FistHit" to="." method="_on_FistHit_body_entered"]
