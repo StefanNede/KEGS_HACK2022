@@ -187,11 +187,9 @@ format = 1
 position = Vector2( 291, 65 )
 
 [node name="PunchEnemy" parent="." instance=ExtResource( 7 )]
-visible = false
 position = Vector2( 119, 428 )
 
 [node name="PunchEnemy2" parent="." instance=ExtResource( 7 )]
-visible = false
 position = Vector2( 840, 72 )
 
 [node name="ImpactManager" type="Node2D" parent="."]
