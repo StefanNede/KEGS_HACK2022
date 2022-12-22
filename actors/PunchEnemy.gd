@@ -39,7 +39,10 @@ func handle_hit(weapon: String) -> void:
 		queue_free()
 
 func handle_knockback(direction: Vector2):
-	pass
+	print(direction.x)
+	print(direction.y)
+	self.position.x += direction.x * 20
+	self.position.y += direction.y * 20
 
 func rotate_towards(location: Vector2) -> void:
 	rotation = lerp(rotation, global_position.direction_to(location).angle(), 0.1)
