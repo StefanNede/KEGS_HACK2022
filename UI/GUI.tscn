@@ -65,35 +65,49 @@ percent_visible = false
 
 [node name="HealthTween" type="Tween" parent="MarginContainer/Rows/TopRow/HealthSection"]
 
-[node name="AmmoSection" type="HBoxContainer" parent="MarginContainer/Rows/TopRow"]
-visible = false
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/Rows/TopRow"]
 margin_left = 204.0
-margin_right = 944.0
+margin_right = 822.0
 margin_bottom = 98.0
 mouse_filter = 2
 size_flags_horizontal = 3
-alignment = 2
+
+[node name="LevelName" type="Label" parent="MarginContainer/Rows/TopRow/CenterContainer"]
+margin_left = 232.0
+margin_top = 25.0
+margin_right = 386.0
+margin_bottom = 73.0
+custom_fonts/font = ExtResource( 2 )
+text = "Level 1"
+uppercase = true
+
+[node name="AmmoSection" type="HBoxContainer" parent="MarginContainer/Rows/TopRow"]
+margin_left = 826.0
+margin_right = 944.0
+margin_bottom = 98.0
+mouse_filter = 2
+size_flags_vertical = 3
+alignment = 1
 
 [node name="CurrentAmmo" type="Label" parent="MarginContainer/Rows/TopRow/AmmoSection"]
-margin_left = 622.0
 margin_top = 25.0
-margin_right = 666.0
+margin_right = 44.0
 margin_bottom = 73.0
 custom_fonts/font = ExtResource( 2 )
 text = "30"
 
 [node name="Separator" type="Label" parent="MarginContainer/Rows/TopRow/AmmoSection"]
-margin_left = 670.0
+margin_left = 48.0
 margin_top = 25.0
-margin_right = 692.0
+margin_right = 70.0
 margin_bottom = 73.0
 custom_fonts/font = ExtResource( 2 )
 text = "/"
 
 [node name="AmmoLeft" type="Label" parent="MarginContainer/Rows/TopRow/AmmoSection"]
-margin_left = 696.0
+margin_left = 74.0
 margin_top = 25.0
-margin_right = 740.0
+margin_right = 118.0
 margin_bottom = 73.0
 custom_fonts/font = ExtResource( 2 )
 text = "30"

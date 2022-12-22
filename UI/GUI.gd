@@ -8,6 +8,8 @@ onready var ammo_left = $MarginContainer/Rows/TopRow/AmmoSection/AmmoLeft
 onready var health_tween = $MarginContainer/Rows/TopRow/HealthSection/HealthTween
 onready var ammo_section = $MarginContainer/Rows/TopRow/AmmoSection
 
+onready var level_name = $MarginContainer/Rows/TopRow/CenterContainer/LevelName
+
 onready var inventory_bar: Inventory_Bar = $MarginContainer/Rows/BottomRow/InventoryBar
 
 var player: Player
@@ -15,6 +17,22 @@ var level: int
 
 func _ready() -> void:
 	level = getLevel()
+	setLevelName()
+
+func setLevelName() -> void:
+	match level:
+		1:
+			level_name.text = "outside HQ"
+		2:
+			level_name.text = "lobby"
+		3:
+			level_name.text = "factory"
+		4:
+			level_name.text = "courtyard"
+		5:
+			level_name.text = "santa's room"
+		_:
+			level_name.text = str(level)
 
 func getLevel() -> int:
 	var current_scene: String = get_tree().get_current_scene().get_name()
