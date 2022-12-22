@@ -26,7 +26,7 @@
 
 	- 3 waves
 
-- Outside Santa's Room
+- Courtyard
 
 	- Unlock Rudolph's nose at end
 
@@ -76,8 +76,8 @@
 
 - Reindeer -> at an interval (tbd) rotate towards you and charge in that position until hit an obstacle (e.g. edge of screen or you)
 
-- Rudolph -> same attack as reindeer but interval is reduced
+- Rudolph (comming soon) -> same attack as reindeer but interval is reduced
 
-- Ice Witch -> A* pathfinding
+- Ice Witch -> A* pathfinding and freezes you for 1 second after hitting you 5 times
 
-- Santa -> undecided
+- Santa -> soawns other enemies
