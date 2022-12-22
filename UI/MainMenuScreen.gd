@@ -6,7 +6,7 @@ func _on_PlayCampaign_pressed():
 
 
 func _on_PlaySurvival_pressed():
-	pass # Replace with function body.
+	get_tree().change_scene("res://UI/ComingSoonScreen.tscn")
 
 
 func _on_Quit_pressed():

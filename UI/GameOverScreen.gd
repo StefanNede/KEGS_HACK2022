@@ -17,7 +17,6 @@ func _on_Restart_pressed():
 func _on_Quit_pressed():
 	get_tree().quit()
 
-
 func _on_MainMenuButton_pressed():
 	get_tree().paused = false
 	get_tree().change_scene("res://UI/MainMenuScreen.tscn")

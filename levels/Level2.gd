@@ -19,6 +19,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		add_child(pause_menu)
 
 func spawn_player() -> void:
+	player.connect("won", self, "handle_player_won_level")
 	player.connect("died", self, "handle_player_died")
 	gui.set_player(player)
 
@@ -26,11 +27,6 @@ func handle_player_died() -> void:
 	var game_over = GameOverScreen.instance()
 	add_child(game_over)
 	game_over.set_title(false)
-	get_tree().paused = true
-
-func handle_player_won_game() -> void:
-	var game_over = GameOverScreen.instance()
-	game_over.set_title(true)
 	get_tree().paused = true
 
 func handle_player_won_level() -> void:

@@ -6,6 +6,7 @@ signal player_health_changed(new_health)
 signal pistol_ammo_left_changed(new_ammo_left)
 signal weapon_changed(new_weapon)
 signal died
+signal won
 
 # PackedScene is a reference to the scene data 
 #	- can create instances of PackedScene in game so like a class
@@ -23,11 +24,17 @@ var weapons_available = []
 var current_level: int
 var current_weapon
 
+var enemies_left: int
+
 func _ready() -> void:
 	health_stat.health = 200
 	current_level = getLevel()
 	weapons_available = getWeaponAvailable(current_level)
+	enemies_left = getEnemiesLeft()
 	connectWeapons()
+
+func getEnemiesLeft() -> int:
+	return 0
 
 func getLevel() -> int:
 	var current_scene: String = get_tree().get_current_scene().get_name()
@@ -155,7 +162,13 @@ func handle_hit() -> void:
 	emit_signal("player_health_changed", health_stat.health)
 	if health_stat.health <= 0:
 		die()
+	
+	# check the number of enemies left on the screen
+	
 	# print("player health now at: " + str(health_stat.health))
 
 func die():
 	emit_signal("died")
+
+func win():
+	emit_signal("won")
