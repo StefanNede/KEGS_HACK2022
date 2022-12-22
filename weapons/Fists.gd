@@ -7,6 +7,9 @@ func _ready() -> void:
 
 func shoot() -> void:
 	animation_player.play("Punching")
-	
-	# check if there are any enmies in front of the fists and move them back
-	
+
+func _on_FistHit_body_entered(body):
+	if body.is_in_group("enemy"):
+		body.handle_hit("fists")
+		GlobalSignals.emit_signal("bullet_impacted", body.global_position, Vector2.ZERO)
+		# body.handle_knockback(position)

@@ -1,7 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/self-made/weapons/Boxing_Gloves.png" type="Texture" id=1]
 [ext_resource path="res://weapons/Fists.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 15, 4.50003 )
 
 [sub_resource type="Animation" id=1]
 resource_name = "Punching"
@@ -19,31 +22,54 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 0, 1, 3, 0 ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("BoxingGloves/FistHit/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.06, 0.15 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("BoxingGloves/FistHit/CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
 
 [node name="Fists" type="Node2D"]
 script = ExtResource( 2 )
 
-[node name="RightFist" type="Sprite" parent="."]
-visible = false
-position = Vector2( 0, 11 )
+[node name="BoxingGloves" type="Sprite" parent="."]
+position = Vector2( -191.249, -54.2577 )
 rotation = 1.5708
 texture = ExtResource( 1 )
-region_enabled = true
-region_rect = Rect2( 21, 17, 14, 18 )
+offset = Vector2( 59.257, -193.249 )
+hframes = 5
+region_rect = Rect2( 1, 9, 239, 26 )
 
-[node name="LeftFist" type="Sprite" parent="."]
-visible = false
-position = Vector2( 0, -10 )
-rotation = 1.5708
-texture = ExtResource( 1 )
-region_enabled = true
-region_rect = Rect2( 5, 17, 14, 18 )
+[node name="FistHit" type="Area2D" parent="BoxingGloves"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoxingGloves/FistHit"]
+position = Vector2( 54.257, -205.249 )
+shape = SubResource( 2 )
+disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Punching = SubResource( 1 )
+anims/RESET = SubResource( 3 )
 
-[node name="BoxingGloves" type="Sprite" parent="."]
-position = Vector2( 2, 5 )
-rotation = 1.5708
-texture = ExtResource( 1 )
-hframes = 5
+[connection signal="body_entered" from="BoxingGloves/FistHit" to="." method="_on_FistHit_body_entered"]

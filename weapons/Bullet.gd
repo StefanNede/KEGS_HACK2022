@@ -11,7 +11,6 @@ var direction := Vector2.ZERO
 func _ready() -> void:
 	kill_timer.start()
 
-
 # physics process is called at a constant rate so it doesn't depend on fps
 func _physics_process(delta: float) -> void:
 	if direction != Vector2.ZERO:
