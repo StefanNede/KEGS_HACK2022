@@ -36,6 +36,7 @@ func handle_hit(weapon: String) -> void:
 	var damage_dealt := get_damage_dealt(weapon)
 	health_stat.health -= damage_dealt # automatically calls the setters
 	if health_stat.health <= 0:
+		GlobalSignals.emit_signal("enemy_died")
 		queue_free()
 
 func handle_knockback(direction: Vector2):

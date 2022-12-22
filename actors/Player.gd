@@ -6,7 +6,6 @@ signal player_health_changed(new_health)
 signal pistol_ammo_left_changed(new_ammo_left)
 signal weapon_changed(new_weapon)
 signal died
-signal won
 
 # PackedScene is a reference to the scene data 
 #	- can create instances of PackedScene in game so like a class
@@ -176,6 +175,3 @@ func handle_hit(weapon: String) -> void:
 
 func die():
 	emit_signal("died")
-
-func win():
-	emit_signal("won")

@@ -12,4 +12,4 @@ func _on_SwordHit_body_entered(body):
 	if body.is_in_group("enemy"):
 		body.handle_hit("sword")
 		GlobalSignals.emit_signal("bullet_impacted", body.global_position, Vector2.ZERO)
-		# body.handle_knockback(position)
+		# body.handle_knockback(direction)
