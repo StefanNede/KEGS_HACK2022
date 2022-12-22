@@ -36,10 +36,6 @@
 
 	- 5 waves
 
-- Runway
-
-	- 5 waves
-
 ### Weapons:
 
 - Fists
