@@ -34,5 +34,7 @@ func _on_KillTimer_timeout():
 func _on_Bullet_body_entered(body: Node):
 	if body.has_method("handle_hit"):
 		GlobalSignals.emit_signal("bullet_impacted", body.global_position, direction)
-		body.handle_hit()
+		body.handle_hit("pistol")
+	if body.has_method("handle_knockback"):
+		body.handle_knockback(direction)
 	queue_free() # destroy the bullet after it hits something

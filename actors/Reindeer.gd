@@ -12,11 +12,26 @@ func _ready() -> void:
 	ai.initialise(self)
 	health_stat.health = starting_health
 
-func handle_hit() -> void:
-	health_stat.health -= 20
+func get_damage_dealt(weapon: String) -> int:
+	match weapon:
+		"fists":
+			return 20
+		"sword":
+			return 40
+		"pistol":
+			return 50
+		"grenade":
+			return 100
+		"rudolph":
+			return 0
+		_:
+			return 0
+
+func handle_hit(weapon: String) -> void:
+	var damage_dealt := get_damage_dealt(weapon)
+	health_stat.health -= damage_dealt
 	if health_stat.health <= 0:
 		queue_free()
-	# print("enemy health now at: " + str(health_stat.health))
 
 func rotate_towards(location: Vector2) -> void:
 	# rotation is in radians

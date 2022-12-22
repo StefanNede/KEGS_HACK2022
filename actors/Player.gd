@@ -156,7 +156,14 @@ func _unhandled_input(event: InputEvent) -> void:
 		handle_reload()
 
 
-func handle_hit() -> void:
+func get_damage_dealt(weapon: String) -> int:
+	match weapon:
+		"pistol":
+			return 20
+		_:
+			return 0
+
+func handle_hit(weapon: String) -> void:
 	print("player health: " + str(health_stat.health))
 	health_stat.health -= 20 # automatically calls the setter
 	emit_signal("player_health_changed", health_stat.health)

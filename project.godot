@@ -92,7 +92,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="TDSTut"
+config/name="KillingSanta"
 run/main_scene="res://UI/MainMenuScreen.tscn"
 config/icon="res://icon.png"
 
