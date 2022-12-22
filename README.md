@@ -48,25 +48,25 @@
 
 	- Regen of 0 seconds (can spam)
 
-- Snow sword
+- Candy Cane Sword
 
 	- Do 40 damage
 
 	- Regen of 0 seconds (can spam)
 
-- Snow gun
+- Snow Gun
 
 	- Do 50 damage
 
 	- Regen of 0.25 seconds
 
-- Bauble grenades
+- Bauble Grenades
 
 	- Do 100 damage
 
 	- Regen of 1 second
 
-- Rudolph's nose
+- Rudolph's Nose
 
 	- Stuns everyone on the map
 
@@ -76,12 +76,12 @@
 
 - Elves -> bad but full pathfinding (e.g. get stopped by walls)
 
-- Sentry elves -> walk around in a circular area and shoot you if you go into that area
+- Sentry Elves -> walk around in a circular area and shoot you if you go into that area
 
 - Reindeer -> at an interval (tbd) rotate towards you and charge in that position until hit an obstacle (e.g. edge of screen or you)
 
 - Rudolph -> same attack as reindeer but interval is reduced
 
-- Ice witch -> A* pathfinding
+- Ice Witch -> A* pathfinding
 
 - Santa -> undecided
