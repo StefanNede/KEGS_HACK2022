@@ -42,8 +42,8 @@ func handle_hit(weapon: String) -> void:
 func handle_knockback(direction: Vector2):
 	print(direction.x)
 	print(direction.y)
-	self.position.x += direction.x * 20
-	self.position.y += direction.y * 20
+	self.position.x += direction.x * 30
+	self.position.y += direction.y * 30
 
 func rotate_towards(location: Vector2) -> void:
 	rotation = lerp(rotation, global_position.direction_to(location).angle(), 0.1)
