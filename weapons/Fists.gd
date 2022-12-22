@@ -15,4 +15,5 @@ func _on_FistHit_body_entered(body):
 		body.handle_hit("fists")
 		get_direction()
 		GlobalSignals.emit_signal("bullet_impacted", body.global_position, direction)
-		body.handle_knockback(direction)
+		if body.has_method("handle_knockback"):
+			body.handle_knockback(direction)
