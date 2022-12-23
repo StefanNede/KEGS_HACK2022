@@ -78,16 +78,6 @@ _global_script_classes=[ {
 "class": "SnowBullet",
 "language": "GDScript",
 "path": "res://weapons/SnowBullet.gd"
-}, {
-"base": "KinematicBody2D",
-"class": "WitchEnemy",
-"language": "GDScript",
-"path": "res://actors/WitchEnemy.gd"
-}, {
-"base": "Node2D",
-"class": "Witch_AI",
-"language": "GDScript",
-"path": "res://actors/WitchAI.gd"
 } ]
 _global_script_class_icons={
 "Bullet": "",
@@ -103,9 +93,7 @@ _global_script_class_icons={
 "ShootWeapon": "",
 "Shooter_AI": "",
 "Shooter_Enemy": "",
-"SnowBullet": "",
-"WitchEnemy": "",
-"Witch_AI": ""
+"SnowBullet": ""
 }
 
 [application]

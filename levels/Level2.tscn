@@ -196,3 +196,4 @@ script = ExtResource( 1 )
 [node name="GUI" parent="." instance=ExtResource( 3 )]
 
 [node name="WitchEnemy" parent="." instance=ExtResource( 10 )]
+position = Vector2( 407, 177 )
