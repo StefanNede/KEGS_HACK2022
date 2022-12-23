@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://ImpactManager.gd" type="Script" id=1]
 [ext_resource path="res://assets/Modern tiles_Free/Interiors_free/32x32/Interiors_free_32x32.png" type="Texture" id=2]
@@ -9,7 +9,6 @@
 [ext_resource path="res://BulletManager.gd" type="Script" id=7]
 [ext_resource path="res://actors/Player.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/RF_Catacombs/decorative.png" type="Texture" id=9]
-[ext_resource path="res://actors/WitchEnemy.tscn" type="PackedScene" id=10]
 
 [sub_resource type="TileSet" id=55]
 0/name = "floor2"
@@ -194,6 +193,3 @@ script = ExtResource( 7 )
 script = ExtResource( 1 )
 
 [node name="GUI" parent="." instance=ExtResource( 3 )]
-
-[node name="WitchEnemy" parent="." instance=ExtResource( 10 )]
-position = Vector2( 102, 257 )
