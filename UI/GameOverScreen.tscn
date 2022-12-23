@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://UI/roboto_mono_64.tres" type="DynamicFont" id=1]
 [ext_resource path="res://UI/roboto_mono_36.tres" type="DynamicFont" id=2]
 [ext_resource path="res://UI/GameOverScreen.gd" type="Script" id=3]
+[ext_resource path="res://assets/audio/jingle_bells_bg.mp3" type="AudioStream" id=4]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.235294, 0.235294, 0.235294, 1 )
@@ -68,6 +69,12 @@ margin_right = 210.0
 margin_bottom = 242.0
 custom_fonts/font = ExtResource( 2 )
 text = " QUIT "
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+volume_db = -5.0
+pitch_scale = 0.4
+autoplay = true
 
 [connection signal="pressed" from="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer/MainMenuButton" to="." method="_on_MainMenuButton_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer/Restart" to="." method="_on_Restart_pressed"]
