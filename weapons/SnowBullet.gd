@@ -11,6 +11,7 @@ func _ready() -> void:
 
 # physics process is called at a constant rate so it doesn't depend on fps
 func _physics_process(delta: float) -> void:
+	print(direction)
 	if direction != Vector2.ZERO:
 		var velocity = direction * speed
 		

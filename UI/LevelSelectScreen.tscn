@@ -100,7 +100,7 @@ margin_bottom = 282.0
 custom_fonts/font = ExtResource( 2 )
 text = " HOME "
 
-[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
 volume_db = -5.0
 pitch_scale = 0.4

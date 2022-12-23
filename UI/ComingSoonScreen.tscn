@@ -53,7 +53,7 @@ size_flags_horizontal = 0
 custom_fonts/font = ExtResource( 2 )
 text = " QUIT "
 
-[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
 volume_db = -5.0
 pitch_scale = 0.4

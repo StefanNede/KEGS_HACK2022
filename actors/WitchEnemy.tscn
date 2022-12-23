@@ -1,10 +1,10 @@
 [gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/self-made/characters/Ice_Queen.png" type="Texture" id=1]
+[ext_resource path="res://assets/audio/snow_bullet.mp3" type="AudioStream" id=2]
 [ext_resource path="res://actors/WitchEnemy.gd" type="Script" id=3]
 [ext_resource path="res://actors/Health.tscn" type="PackedScene" id=4]
 [ext_resource path="res://actors/WitchAI.gd" type="Script" id=5]
-[ext_resource path="res://assets/audio/gunshot.mp3" type="AudioStream" id=6]
 [ext_resource path="res://assets/topdown-tank/Spritesheet/onlyObjects_default.png" type="Texture" id=7]
 [ext_resource path="res://assets/self-made/weapons/SnowWeapon.gd" type="Script" id=8]
 
@@ -62,8 +62,7 @@ region_enabled = true
 region_rect = Rect2( 324, 334, 20, 25 )
 
 [node name="ShotAudio" type="AudioStreamPlayer2D" parent="Weapon"]
-stream = ExtResource( 6 )
-volume_db = -6.0
+stream = ExtResource( 2 )
 pitch_scale = 2.0
 
 [node name="AI" type="Node2D" parent="."]

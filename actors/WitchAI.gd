@@ -10,10 +10,10 @@ enum State {
 }
 
 onready var player_detection_zone = $PlayerDetectionZone
+onready var player: Player = get_node("../../Player")
 
 var current_state: int = -1 setget set_state
 var actor: KinematicBody2D = null
-onready var player: Player = get_node("../../Player")
 var weapon = null
 
 # PATROL STATE

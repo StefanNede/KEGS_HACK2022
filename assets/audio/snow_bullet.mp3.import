@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/snow_bullet.mp3-2e937a307ca197d5bea8c3088b70fa5c.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/snow_bullet.mp3"
+dest_files=[ "res://.import/snow_bullet.mp3-2e937a307ca197d5bea8c3088b70fa5c.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
