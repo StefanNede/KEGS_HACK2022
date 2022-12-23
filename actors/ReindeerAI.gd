@@ -40,3 +40,7 @@ func _on_Timer_timeout():
 		#print(actor.global_position, target_position)
 		angle_to_target = actor.global_position.direction_to(target_position).angle()
 		actor_velocity = actor.velocity_towards(target_position)
+
+
+func _on_ReindeerHit_body_entered(body):
+	pass # Replace with function body.

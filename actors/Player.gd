@@ -95,9 +95,7 @@ func setCurrentWeapon(weapon) -> void:
 
 func connectWeapons() -> void:
 	# print(weapons_available)
-	for weapon in weapons_available:
-		if weapon.get("current_ammo"):
-			weapon.connect("weapon_out_of_ammo", self, "handle_reload")
+	$WeaponManager/Pistol.connect("weapon_out_of_ammo", self, "handle_reload")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
