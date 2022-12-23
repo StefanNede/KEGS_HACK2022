@@ -37,6 +37,7 @@ func _process(delta: float) -> void:
 			if not patrol_location_reached:
 				# move enemy
 				actor.move_and_slide(actor_velocity)
+
 				actor.rotate_towards(patrol_location)
 				if actor.global_position.distance_to(patrol_location) < 5:
 					patrol_location_reached = true
@@ -90,5 +91,8 @@ func _on_PatrolTimer_timeout():
 	
 	patrol_location = Vector2(random_x, random_y) + origin
 	patrol_location_reached = false
+	
+	patrol_location.x = clamp(patrol_location.x, 20, get_viewport().size.x - 20)
+	patrol_location.y = clamp(patrol_location.y, 20, get_viewport().size.y - 20) 
 	
 	actor_velocity = actor.velocity_towards(patrol_location)

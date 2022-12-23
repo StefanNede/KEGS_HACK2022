@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://levels/Level3.gd" type="Script" id=1]
 [ext_resource path="res://ImpactManager.gd" type="Script" id=2]
 [ext_resource path="res://assets/topdown-shooter/Tilesheet/tilesheet_complete.png" type="Texture" id=3]
 [ext_resource path="res://BulletManager.gd" type="Script" id=4]
 [ext_resource path="res://assets/audio/ambient_bg.mp3" type="AudioStream" id=5]
+[ext_resource path="res://actors/ShooterEnemy.tscn" type="PackedScene" id=6]
 [ext_resource path="res://actors/Player.tscn" type="PackedScene" id=7]
 [ext_resource path="res://UI/GUI.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/RF_Catacombs/mainlevbuild.png" type="Texture" id=10]
@@ -136,7 +137,7 @@ tile_set = SubResource( 53 )
 format = 1
 
 [node name="Player" parent="." instance=ExtResource( 7 )]
-position = Vector2( 291, 65 )
+position = Vector2( 291, 279 )
 
 [node name="BulletManager" type="Node2D" parent="."]
 script = ExtResource( 4 )
@@ -150,3 +151,6 @@ script = ExtResource( 2 )
 stream = ExtResource( 5 )
 volume_db = 2.5
 autoplay = true
+
+[node name="ShooterEnemy" parent="." instance=ExtResource( 6 )]
+position = Vector2( 735, 24 )

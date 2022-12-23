@@ -122,6 +122,9 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide(movement_direction*speed) # returns the actual velocity - so we can store how we're moving
 	
+	position.x = clamp(position.x, 20, get_viewport().size.x - 20)
+	position.y = clamp(position.y, 20, get_viewport().size.y - 20) 
+	
 	# rotate and face the mouse
 	look_at(get_global_mouse_position())
 
