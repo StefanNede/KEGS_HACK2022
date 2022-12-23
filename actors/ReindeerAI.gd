@@ -35,8 +35,8 @@ func _process(delta: float) -> void:
 
 func _on_Timer_timeout():
 	if player != null:
-		print("new target position set")
+		#print("new target position set")
 		target_position = player.global_position
-		print(actor.global_position, target_position)
+		#print(actor.global_position, target_position)
 		angle_to_target = actor.global_position.direction_to(target_position).angle()
 		actor_velocity = actor.velocity_towards(target_position)

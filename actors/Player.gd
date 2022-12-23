@@ -121,18 +121,19 @@ func _physics_process(delta: float) -> void:
 	look_at(get_global_mouse_position())
 
 func handle_reload():
-	print(current_weapon)
+	#print(current_weapon)
 	if not current_weapon.get("max_ammo"):
 		return
 	
 	# reloads automatically if no ammo left or can be triggered by pressing r
 	if ammo_left > 0:
 		var ammo_used = min(mag_size- current_weapon.current_ammo, ammo_left - current_weapon.current_ammo)
-		print(ammo_used)
+		#print(ammo_used)
 		current_weapon.start_reload(current_weapon.current_ammo + ammo_used)
 		ammo_left -= ammo_used
 	else:
-		print("no ammo left")
+		#print("no ammo left")
+		pass
 	
 	emit_signal("pistol_ammo_left_changed", ammo_left)
 
@@ -164,7 +165,7 @@ func get_damage_dealt(weapon: String) -> int:
 			return 0
 
 func handle_hit(weapon: String) -> void:
-	print("player health: " + str(health_stat.health))
+	# print("player health: " + str(health_stat.health))
 	health_stat.health -= 20 # automatically calls the setter
 	hurt_audio.play()
 	emit_signal("player_health_changed", health_stat.health)

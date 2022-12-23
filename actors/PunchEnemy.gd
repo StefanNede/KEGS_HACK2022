@@ -45,8 +45,8 @@ func handle_hit(weapon: String) -> void:
 		queue_free()
 
 func handle_knockback(direction: Vector2):
-	print(direction.x)
-	print(direction.y)
+	#print(direction.x)
+	#print(direction.y)
 	self.position.x += direction.x * 30
 	self.position.y += direction.y * 30
 
