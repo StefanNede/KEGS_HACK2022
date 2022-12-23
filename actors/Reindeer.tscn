@@ -20,7 +20,7 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[node name="Reindeer" type="KinematicBody2D"]
+[node name="Reindeer" type="KinematicBody2D" groups=["enemy"]]
 script = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
