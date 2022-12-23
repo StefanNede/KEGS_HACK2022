@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://UI/GUI.gd" type="Script" id=1]
 [ext_resource path="res://UI/roboto_mono_36.tres" type="DynamicFont" id=2]
 [ext_resource path="res://UI/InventoryBar.tscn" type="PackedScene" id=3]
 [ext_resource path="res://UI/roboto_mono_26.tres" type="DynamicFont" id=4]
+[ext_resource path="res://UI/roboto_mono_12.tres" type="DynamicFont" id=5]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.360784, 0.0941176, 0.0941176, 1 )
@@ -29,7 +30,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 custom_constants/margin_right = 50
-custom_constants/margin_top = 0
 custom_constants/margin_left = 30
 custom_constants/margin_bottom = 0
 
@@ -48,15 +48,22 @@ margin_bottom = 98.0
 mouse_filter = 2
 size_flags_vertical = 3
 
-[node name="HealthSection" type="CenterContainer" parent="MarginContainer/Rows/TopRow"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/Rows/TopRow"]
 margin_right = 200.0
 margin_bottom = 98.0
 mouse_filter = 2
+custom_constants/separation = 10
+alignment = 1
 
-[node name="HealthBar" type="ProgressBar" parent="MarginContainer/Rows/TopRow/HealthSection"]
-margin_top = 34.0
+[node name="HealthSection" type="CenterContainer" parent="MarginContainer/Rows/TopRow/VBoxContainer2"]
+margin_top = 15.0
 margin_right = 200.0
-margin_bottom = 64.0
+margin_bottom = 45.0
+mouse_filter = 2
+
+[node name="HealthBar" type="ProgressBar" parent="MarginContainer/Rows/TopRow/VBoxContainer2/HealthSection"]
+margin_right = 200.0
+margin_bottom = 30.0
 rect_min_size = Vector2( 200, 30 )
 mouse_filter = 2
 custom_styles/fg = SubResource( 1 )
@@ -64,7 +71,15 @@ custom_styles/bg = SubResource( 2 )
 value = 100.0
 percent_visible = false
 
-[node name="HealthTween" type="Tween" parent="MarginContainer/Rows/TopRow/HealthSection"]
+[node name="HealthTween" type="Tween" parent="MarginContainer/Rows/TopRow/VBoxContainer2/HealthSection"]
+
+[node name="FrozenIndicator" type="Label" parent="MarginContainer/Rows/TopRow/VBoxContainer2"]
+margin_top = 55.0
+margin_right = 200.0
+margin_bottom = 82.0
+custom_colors/font_color = Color( 0.14902, 0.498039, 0.752941, 1 )
+custom_fonts/font = ExtResource( 5 )
+align = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Rows/TopRow"]
 margin_left = 204.0
@@ -101,7 +116,6 @@ margin_right = 944.0
 margin_bottom = 98.0
 mouse_filter = 2
 size_flags_vertical = 3
-alignment = 1
 
 [node name="CurrentAmmo" type="Label" parent="MarginContainer/Rows/TopRow/AmmoSection"]
 margin_top = 25.0

@@ -3,8 +3,8 @@ extends KinematicBody2D
 class_name Player
 
 signal player_health_changed(new_health)
-
 signal weapon_changed(new_weapon)
+signal changed_frozen_status(status)
 signal died
 
 # PackedScene is a reference to the scene data 
@@ -178,6 +178,7 @@ func _unhandled_input(event: InputEvent) -> void:
 func handle_frozen_level() -> void:
 	if frozen_level >= 5:
 		frozen = true
+		emit_signal("changed_frozen_status", true)
 		# play frozen audio
 		# display frozen in UI
 		# wait for 1 second then un freeze and set frozen_level to 0
@@ -190,6 +191,7 @@ func handle_frozen_level() -> void:
 		t.queue_free()
 		frozen = false
 		frozen_level = 0
+		emit_signal("changed_frozen_status", false)
 
 func get_damage_dealt(weapon: String) -> int:
 	match weapon:

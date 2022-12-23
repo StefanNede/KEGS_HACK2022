@@ -9,6 +9,10 @@ onready var player: Player = $Player
 onready var gui: Gui = $GUI
 
 var enemies: int = 50
+var waves = [[]]
+var waves_enemy = [0]
+var time_between_waves: float = 5.0
+var current_wave = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

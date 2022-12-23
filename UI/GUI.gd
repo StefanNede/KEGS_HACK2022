@@ -4,14 +4,16 @@ class_name Gui
 
 onready var level_scene = get_parent()
 
-onready var health_bar = $MarginContainer/Rows/TopRow/HealthSection/HealthBar
+onready var health_bar = $MarginContainer/Rows/TopRow/VBoxContainer2/HealthSection/HealthBar
 onready var current_ammo = $MarginContainer/Rows/TopRow/AmmoSection/CurrentAmmo
 onready var ammo_left = $MarginContainer/Rows/TopRow/AmmoSection/AmmoLeft
-onready var health_tween = $MarginContainer/Rows/TopRow/HealthSection/HealthTween
+onready var health_tween = $MarginContainer/Rows/TopRow/VBoxContainer2/HealthSection/HealthTween
 onready var ammo_section = $MarginContainer/Rows/TopRow/AmmoSection
 
 onready var level_name = $MarginContainer/Rows/TopRow/VBoxContainer/CenterContainer/LevelName
 onready var wave_label = $MarginContainer/Rows/TopRow/VBoxContainer/Wave
+
+onready var frozen_indicator = $MarginContainer/Rows/TopRow/VBoxContainer2/FrozenIndicator
 
 onready var inventory_bar: Inventory_Bar = $MarginContainer/Rows/BottomRow/InventoryBar
 
@@ -49,9 +51,16 @@ func getLevel() -> int:
 	var current_level: int = int(current_scene.get_name()[current_scene.get_name().length()-1])
 	return current_level
 
+func handle_frozen_status(status: bool) -> void:
+	if status:
+		frozen_indicator.text = "frozen"
+	else:
+		frozen_indicator.text = ""
+
 func set_player(player: Player):
 	self.player = player
 	player.connect("weapon_changed", self, "handle_weapon_changed")
+	player.connect("changed_frozen_status", self, "handle_frozen_status")
 	
 	set_new_health(player.health_stat.health)
 	if level >= 3:

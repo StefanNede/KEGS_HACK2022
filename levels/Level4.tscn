@@ -121,7 +121,7 @@ tile_set = SubResource( 53 )
 format = 1
 
 [node name="Player" parent="." instance=ExtResource( 7 )]
-position = Vector2( 291, 65 )
+position = Vector2( 499, 291 )
 
 [node name="BulletManager" type="Node2D" parent="."]
 script = ExtResource( 4 )

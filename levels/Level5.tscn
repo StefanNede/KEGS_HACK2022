@@ -1,14 +1,11 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://levels/Level5.gd" type="Script" id=1]
 [ext_resource path="res://ImpactManager.gd" type="Script" id=2]
 [ext_resource path="res://assets/self-made/tilesets/TilesA2.png" type="Texture" id=3]
 [ext_resource path="res://BulletManager.gd" type="Script" id=4]
-[ext_resource path="res://actors/ShooterEnemy.tscn" type="PackedScene" id=5]
-[ext_resource path="res://actors/PunchEnemy.tscn" type="PackedScene" id=6]
 [ext_resource path="res://actors/Player.tscn" type="PackedScene" id=7]
 [ext_resource path="res://UI/GUI.tscn" type="PackedScene" id=8]
-[ext_resource path="res://actors/Reindeer.tscn" type="PackedScene" id=9]
 
 [sub_resource type="TileSet" id=51]
 0/name = "TilesA2.png 0"
@@ -123,22 +120,7 @@ tile_set = SubResource( 53 )
 format = 1
 
 [node name="Player" parent="." instance=ExtResource( 7 )]
-position = Vector2( 291, 65 )
-
-[node name="PunchEnemy" parent="." instance=ExtResource( 6 )]
-position = Vector2( 119, 428 )
-
-[node name="PunchEnemy2" parent="." instance=ExtResource( 6 )]
-position = Vector2( 840, 72 )
-
-[node name="ShooterEnemy" parent="." groups=["enemy"] instance=ExtResource( 5 )]
-position = Vector2( 942, 405 )
-
-[node name="ShooterEnemy2" parent="." groups=["enemy"] instance=ExtResource( 5 )]
-position = Vector2( 406, 453 )
-
-[node name="ShooterEnemy3" parent="." groups=["enemy"] instance=ExtResource( 5 )]
-position = Vector2( 710, 451 )
+position = Vector2( 143, 175 )
 
 [node name="BulletManager" type="Node2D" parent="."]
 script = ExtResource( 4 )
@@ -147,6 +129,3 @@ script = ExtResource( 4 )
 script = ExtResource( 2 )
 
 [node name="GUI" parent="." instance=ExtResource( 8 )]
-
-[node name="Reindeer" parent="." instance=ExtResource( 9 )]
-position = Vector2( 549, 243 )
