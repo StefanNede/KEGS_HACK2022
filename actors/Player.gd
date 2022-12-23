@@ -161,12 +161,14 @@ func get_damage_dealt(weapon: String) -> int:
 	match weapon:
 		"pistol":
 			return 20
+		"reindeer":
+			return 40
 		_:
 			return 0
 
 func handle_hit(weapon: String) -> void:
 	# print("player health: " + str(health_stat.health))
-	health_stat.health -= 20 # automatically calls the setter
+	health_stat.health -= get_damage_dealt(weapon) # automatically calls the setter
 	hurt_audio.play()
 	emit_signal("player_health_changed", health_stat.health)
 	if health_stat.health <= 0:
