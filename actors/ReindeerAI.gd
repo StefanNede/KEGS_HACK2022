@@ -22,6 +22,11 @@ func initialise(actor) -> void:
 	self.actor = actor
 
 func _process(delta: float) -> void:
+	if not target_position_reached and abs(actor.global_position.x - target_position.x) < 1 and abs(actor.global_position.y - target_position.y) < 1:
+		# also need to check if reindeer has collided with anything in which case we set target_position_reached to be true
+		target_position_reached = true
+		hitbox_disabled = true
+		timer.start()
 	if player != null and not target_position_reached:
 		# print("moving to target position")
 		actor.rotate_towards(target_position)
@@ -39,10 +44,10 @@ func _on_Timer_timeout():
 		target_position_reached = false
 		hitbox_disabled = false
 
-
 func _on_ReindeerHit_body_entered(body):
 	if not hitbox_disabled:
 		if body.is_in_group("player"):
 			body.handle_hit("reindeer")
 		target_position_reached = true
+		hitbox_disabled = true
 		timer.start()
