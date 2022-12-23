@@ -19,9 +19,10 @@ onready var gui: Gui = $GUI
 var waves = [
 	["punch","punch","shoot","shoot","reindeer","witch"], 
 	["punch","punch","shoot","shoot","shoot","reindeer","reindeer", "witch", "witch"],
-	["punch","punch","shoot", "shoot", "shoot", "reindeer", "reindeer", "reindeer", "witch", "witch"]
+	["punch","punch","shoot", "shoot", "shoot", "reindeer", "reindeer", "reindeer", "witch", "witch"],
+	["punch","punch","shoot", "shoot", "shoot", "reindeer", "reindeer", "reindeer", "witch", "witch", "witch", "witch"]
 ]
-var waves_enemy = [6,9,10]
+var waves_enemy = [6,9,10,12]
 var time_between_waves: float = 5.0
 var current_wave = 0
 

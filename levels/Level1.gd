@@ -9,6 +9,8 @@ const LevelSelectScreen = preload("res://UI/LevelSelectScreen.tscn")
 
 const PunchEnemyTemplate = preload("res://actors/PunchEnemy.tscn")
 
+const DialogueBox = preload("res://UI/Dialogue.tscn")
+
 onready var player: Player = $Player
 onready var gui: Gui = $GUI
 
@@ -29,6 +31,13 @@ func _ready() -> void:
 	GlobalSignals.connect("enemy_died", self, "handle_enemy_died")
 	spawn_player()
 	spawn_enemies()
+	show_dialogue()
+
+func show_dialogue():
+	var dialogue_box = DialogueBox.instance()
+	var dialogue = dialogue_box.get_node("Label")
+	dialogue.text = "Watch out for these enemies. The elves can't hurt you their just there to annoy you, so quick kill them, we need to find Santa!"
+	add_child(dialogue_box)
 
 func spawn_player() -> void:
 	player.connect("died", self, "handle_player_died")
