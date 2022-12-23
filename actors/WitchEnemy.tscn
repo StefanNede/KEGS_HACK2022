@@ -48,7 +48,6 @@ shape = SubResource( 1 )
 script = ExtResource( 8 )
 
 [node name="AttackCooldown" type="Timer" parent="Weapon"]
-wait_time = 2.0
 one_shot = true
 
 [node name="EndOfGun" type="Position2D" parent="Weapon"]

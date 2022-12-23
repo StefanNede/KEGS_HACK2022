@@ -30,6 +30,5 @@ func _on_KillTimer_timeout():
 # there's also area entered (but this is for other areas not physics bodies, so we would use area entered for other bullets)
 func _on_SnowBullet_body_entered(body: Node):
 	if body.has_method("handle_hit"):
-		GlobalSignals.emit_signal("bullet_impacted", body.global_position, direction)
 		body.handle_hit("snow_bullet")
 	queue_free() # destroy the bullet after it hits something

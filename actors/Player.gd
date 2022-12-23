@@ -28,6 +28,10 @@ var enemies_left: int
 
 var max_health: int = 200
 
+# once this gets over 4 player becomes frozen - then takes 1 second before set back to 0
+var frozen_level: int = 0
+var frozen: bool = false
+
 func _ready() -> void:
 	health_stat.health = max_health
 	current_level = getLevel()
@@ -99,6 +103,7 @@ func connectWeapons() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
+	if frozen: return
 	# print("ammo left: " + str(ammo_left))
 	var movement_direction := Vector2.ZERO
 	
@@ -138,6 +143,8 @@ func handle_reload():
 	emit_signal("pistol_ammo_left_changed", ammo_left)
 
 func _unhandled_input(event: InputEvent) -> void:
+	if frozen: return
+	
 	# change weapon:
 	if event.is_action_released("weapon1") and weapons_available.size() >= 1:
 		setCurrentWeapon(weapons_available[0])
@@ -156,6 +163,21 @@ func _unhandled_input(event: InputEvent) -> void:
 	elif event.is_action_released("reload"):
 		handle_reload()
 
+func handle_frozen_level() -> void:
+	if frozen_level >= 5:
+		frozen = true
+		# play frozen audio
+		# display frozen in UI
+		# wait for 1 second then un freeze and set frozen_level to 0
+		var t = Timer.new()
+		t.set_wait_time(1)
+		t.set_one_shot(true)
+		self.add_child(t)
+		t.start()
+		yield(t, "timeout")
+		t.queue_free()
+		frozen = false
+		frozen_level = 0
 
 func get_damage_dealt(weapon: String) -> int:
 	match weapon:
@@ -163,6 +185,10 @@ func get_damage_dealt(weapon: String) -> int:
 			return 20
 		"reindeer":
 			return 40
+		"snow_bullet":
+			frozen_level += 1
+			handle_frozen_level()
+			return 0
 		_:
 			return 0
 
