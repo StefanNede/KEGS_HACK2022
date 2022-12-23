@@ -47,7 +47,7 @@ func show_dialogue():
 	var dialogue_box = DialogueBox.instance()
 	dialogue_box.z_index = 1
 	var dialogue = dialogue_box.get_node("Label")
-	dialogue.text = "Watch out for these enemies. The elves can't hurt you they're just there to annoy you, so quick kill them, we need to find Santa!"
+	dialogue.text = "The elves can't hurt you they're just there to annoy you, so quick kill them, we need to find Santa! Your health regens between waves."
 	add_child(dialogue_box)
 
 func spawn_player() -> void:

@@ -47,7 +47,7 @@ func show_dialogue():
 	var dialogue_box = DialogueBox.instance()
 	dialogue_box.z_index = 1
 	var dialogue = dialogue_box.get_node("Label")
-	dialogue.text = "One of the elves dropped a gun! It does 50 damage (switch to it with 3). Be careful of the reindeers, they charge every 2 seconds and can hurt you!"
+	dialogue.text = "One of the elves dropped a gun (25 ammo) - 50 damage (switch with key 3). Be careful of the reindeers, they charge every 2 seconds and can hurt you!"
 	add_child(dialogue_box)
 
 func spawn_enemies() -> void:

@@ -45,27 +45,27 @@ margin_right = 944.0
 margin_bottom = 428.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/Rows/CenterContainer"]
-margin_left = 367.0
-margin_right = 577.0
+margin_left = 312.0
+margin_right = 632.0
 margin_bottom = 242.0
 custom_constants/separation = 40
 
 [node name="MainMenuButton" type="Button" parent="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer"]
-margin_right = 210.0
+margin_right = 320.0
 margin_bottom = 54.0
 custom_fonts/font = ExtResource( 2 )
 text = "MENU"
 
-[node name="Restart" type="Button" parent="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer"]
+[node name="LevelSelect" type="Button" parent="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer"]
 margin_top = 94.0
-margin_right = 210.0
+margin_right = 320.0
 margin_bottom = 148.0
 custom_fonts/font = ExtResource( 2 )
-text = " RESTART "
+text = " LEVEL SELECT "
 
 [node name="Quit" type="Button" parent="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer"]
 margin_top = 188.0
-margin_right = 210.0
+margin_right = 320.0
 margin_bottom = 242.0
 custom_fonts/font = ExtResource( 2 )
 text = " QUIT "
@@ -77,5 +77,5 @@ pitch_scale = 0.4
 autoplay = true
 
 [connection signal="pressed" from="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer/MainMenuButton" to="." method="_on_MainMenuButton_pressed"]
-[connection signal="pressed" from="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer/Restart" to="." method="_on_Restart_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer/LevelSelect" to="." method="_on_LevelSelect_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer/Quit" to="." method="_on_Quit_pressed"]

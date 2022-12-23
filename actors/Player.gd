@@ -16,7 +16,7 @@ onready var health_stat = $Health
 onready var collision_shape = $CollisionShape2D
 onready var hurt_audio = $HurtAudio
 
-var ammo_left: int = 30
+var ammo_left: int = 15
 var mag_size: int = 10
 
 var grenades_left: int = 0
