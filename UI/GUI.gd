@@ -2,22 +2,31 @@ extends CanvasLayer
 
 class_name Gui
 
+onready var level_scene = get_parent()
+
 onready var health_bar = $MarginContainer/Rows/TopRow/HealthSection/HealthBar
 onready var current_ammo = $MarginContainer/Rows/TopRow/AmmoSection/CurrentAmmo
 onready var ammo_left = $MarginContainer/Rows/TopRow/AmmoSection/AmmoLeft
 onready var health_tween = $MarginContainer/Rows/TopRow/HealthSection/HealthTween
 onready var ammo_section = $MarginContainer/Rows/TopRow/AmmoSection
 
-onready var level_name = $MarginContainer/Rows/TopRow/CenterContainer/LevelName
+onready var level_name = $MarginContainer/Rows/TopRow/VBoxContainer/CenterContainer/LevelName
+onready var wave_label = $MarginContainer/Rows/TopRow/VBoxContainer/Wave
 
 onready var inventory_bar: Inventory_Bar = $MarginContainer/Rows/BottomRow/InventoryBar
 
 var player: Player
 var level: int
+var wave_number: int
 
 func _ready() -> void:
+	level_scene.connect("wave_changed", self, "setWaveLabel")
 	level = getLevel()
+	setWaveLabel(wave_number)
 	setLevelName()
+
+func setWaveLabel(new_wave) -> void:
+	wave_label.text = "wave " + str(new_wave + 1)
 
 func setLevelName() -> void:
 	match level:
@@ -35,8 +44,9 @@ func setLevelName() -> void:
 			level_name.text = str(level)
 
 func getLevel() -> int:
-	var current_scene: String = get_tree().get_current_scene().get_name()
-	var current_level: int = int(current_scene[current_scene.length()-1])
+	var current_scene = get_tree().get_current_scene()
+	wave_number = current_scene.current_wave
+	var current_level: int = int(current_scene.get_name()[current_scene.get_name().length()-1])
 	return current_level
 
 func set_player(player: Player):

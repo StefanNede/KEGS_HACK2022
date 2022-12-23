@@ -1,6 +1,7 @@
 extends Node2D
 
 signal won
+signal wave_changed(new_wave)
 
 const GameOverScreen = preload("res://UI/GameOverScreen.tscn") 
 const PauseScreen = preload("res://UI/PauseScreen.tscn")
@@ -15,6 +16,8 @@ var enemies: int = 15
 
 # the number of enemies in each wave.
 var waves = [5, 7]
+
+var time_between_waves: float = 5.0
 
 var current_wave = 0
 
@@ -47,6 +50,16 @@ func handle_enemy_died():
 			handle_player_won_level()
 		else:
 			current_wave += 1
+			emit_signal("wave_changed", current_wave)
+			# wait 5 seconds
+			var t = Timer.new()
+			t.set_wait_time(time_between_waves)
+			t.set_one_shot(true)
+			self.add_child(t)
+			t.start()
+			yield(t, "timeout")
+			t.queue_free()
+			
 			# spawn enemies from that wave
 			spawn_enemies()
 
