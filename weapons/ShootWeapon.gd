@@ -5,7 +5,8 @@ class_name ShootWeapon
 signal weapon_out_of_ammo
 signal gun_ammo_changed
 
-export (PackedScene) var Bullet
+
+const Bullet  = preload("res://weapons/Bullet.tscn")
 
 # $ selects child nodes of current parent node
 # onready - not still initialising
@@ -43,6 +44,7 @@ func shoot():
 		# make bullet point in the correct direction
 		var target = get_global_mouse_position()
 		var direction = (end_of_gun.global_position - global_position).normalized() # gets vector between these two
+		
 		GlobalSignals.emit_signal("bullet_fired", bullet_instance, end_of_gun.global_position, direction)
 		
 		# start attack cooldown again

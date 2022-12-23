@@ -1,0 +1,91 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://assets/self-made/characters/Ice_Queen.png" type="Texture" id=1]
+[ext_resource path="res://actors/WitchEnemy.gd" type="Script" id=3]
+[ext_resource path="res://actors/Health.tscn" type="PackedScene" id=4]
+[ext_resource path="res://actors/WitchAI.gd" type="Script" id=5]
+[ext_resource path="res://assets/audio/gunshot.mp3" type="AudioStream" id=6]
+[ext_resource path="res://assets/topdown-tank/Spritesheet/onlyObjects_default.png" type="Texture" id=7]
+[ext_resource path="res://assets/self-made/weapons/SnowWeapon.gd" type="Script" id=8]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 13.5, 12 )
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 135.033
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.643137, 0.121569, 0.121569, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.239216, 0.239216, 0.239216, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="WitchEnemy" type="KinematicBody2D" groups=["enemy"]]
+position = Vector2( 9, 0 )
+script = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -9, 0 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 19, 37, 60, 37 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -10.5, 0 )
+shape = SubResource( 1 )
+
+[node name="Health" parent="." instance=ExtResource( 4 )]
+
+[node name="Weapon" type="Node2D" parent="."]
+script = ExtResource( 8 )
+
+[node name="AttackCooldown" type="Timer" parent="Weapon"]
+wait_time = 2.0
+one_shot = true
+
+[node name="EndOfGun" type="Position2D" parent="Weapon"]
+position = Vector2( 15, 0 )
+
+[node name="MuzzleFlash" type="Sprite" parent="Weapon"]
+visible = false
+position = Vector2( 27, 0 )
+rotation = -1.57741
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 324, 334, 20, 25 )
+
+[node name="ShotAudio" type="AudioStreamPlayer2D" parent="Weapon"]
+stream = ExtResource( 6 )
+volume_db = -6.0
+pitch_scale = 2.0
+
+[node name="AI" type="Node2D" parent="."]
+script = ExtResource( 5 )
+
+[node name="PlayerDetectionZone" type="Area2D" parent="AI" groups=["enemy"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AI/PlayerDetectionZone"]
+position = Vector2( -9, 0 )
+shape = SubResource( 2 )
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+margin_left = -27.0
+margin_top = 18.0
+margin_right = 9.0
+margin_bottom = 24.0
+custom_styles/fg = SubResource( 3 )
+custom_styles/bg = SubResource( 4 )
+max_value = 60.0
+value = 60.0
+percent_visible = false
+
+[connection signal="body_entered" from="AI/PlayerDetectionZone" to="AI" method="_on_PlayerDetectionZone_body_entered"]
+[connection signal="body_exited" from="AI/PlayerDetectionZone" to="AI" method="_on_PlayerDetectionZone_body_exited"]

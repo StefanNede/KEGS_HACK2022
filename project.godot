@@ -73,6 +73,16 @@ _global_script_classes=[ {
 "class": "Shooter_Enemy",
 "language": "GDScript",
 "path": "res://actors/ShooterEnemy.gd"
+}, {
+"base": "Node2D",
+"class": "Witch_AI",
+"language": "GDScript",
+"path": "res://actors/WitchAI.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Witch_Enemy",
+"language": "GDScript",
+"path": "res://actors/WitchEnemy.gd"
 } ]
 _global_script_class_icons={
 "Bullet": "",
@@ -87,7 +97,9 @@ _global_script_class_icons={
 "Reindeer_AI": "",
 "ShootWeapon": "",
 "Shooter_AI": "",
-"Shooter_Enemy": ""
+"Shooter_Enemy": "",
+"Witch_AI": "",
+"Witch_Enemy": ""
 }
 
 [application]
