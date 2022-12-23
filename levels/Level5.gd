@@ -2,7 +2,9 @@ extends Node2D
 
 const GameOverScreen = preload("res://UI/GameOverScreen.tscn") 
 const PauseScreen = preload("res://UI/PauseScreen.tscn")
+const ComingSoonScreen = preload("res://UI/ComingSoonScreen.tscn")
 
+const DialogueBox = preload("res://UI/Dialogue.tscn")
 
 onready var bullet_manager = $BulletManager
 onready var player: Player = $Player
@@ -19,7 +21,25 @@ func _ready() -> void:
 	randomize() # change random number seed every time we play so that random movements don't always go in the same sequence
 	connectBullets()
 	GlobalSignals.connect("enemy_died", self, "handle_enemy_died")
+	show_dialogue()
+	gui.visible = false
+	var t = Timer.new()
+	t.set_wait_time(7)
+	t.set_one_shot(true)
+	self.add_child(t)
+	t.start()
+	yield(t, "timeout")
+	t.queue_free()
+	gui.visible = true
 	spawn_player()
+	handle_player_won_game()
+
+func show_dialogue():
+	var dialogue_box = DialogueBox.instance()
+	dialogue_box.z_index = 1
+	var dialogue = dialogue_box.get_node("Label")
+	dialogue.text = "Santa's room is empty?! He must've escaped, we'll catch him next time..."
+	add_child(dialogue_box)
 
 func handle_enemy_died():
 	enemies -= 1
@@ -48,10 +68,10 @@ func handle_player_died() -> void:
 	get_tree().paused = true
 
 func handle_player_won_game() -> void:
-	var game_over = GameOverScreen.instance()
+	var game_over = ComingSoonScreen.instance()
 	add_child(game_over)
-	game_over.set_title(true)
-	get_tree().paused = true
+	# game_over.set_title(true)
+	# get_tree().paused = true
 
 func handle_player_paused() -> void:
 	get_tree().paused = true

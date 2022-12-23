@@ -36,7 +36,6 @@ region_rect = Rect2( 6, 4, 39, 42 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/ReindeerHit"]
 position = Vector2( -7.05719e-05, 19.4118 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

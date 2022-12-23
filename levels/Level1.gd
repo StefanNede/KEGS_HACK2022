@@ -29,14 +29,25 @@ var current_wave = 0
 func _ready() -> void:
 	randomize() # change random number seed every time we play so that random movements don't always go in the same sequence
 	GlobalSignals.connect("enemy_died", self, "handle_enemy_died")
+	show_dialogue()
+	gui.visible = false
+	var t = Timer.new()
+	t.set_wait_time(7)
+	t.set_one_shot(true)
+	self.add_child(t)
+	t.start()
+	yield(t, "timeout")
+	t.queue_free()
+	gui.visible = true
 	spawn_player()
 	spawn_enemies()
-	show_dialogue()
+
 
 func show_dialogue():
 	var dialogue_box = DialogueBox.instance()
+	dialogue_box.z_index = 1
 	var dialogue = dialogue_box.get_node("Label")
-	dialogue.text = "Watch out for these enemies. The elves can't hurt you their just there to annoy you, so quick kill them, we need to find Santa!"
+	dialogue.text = "Watch out for these enemies. The elves can't hurt you they're just there to annoy you, so quick kill them, we need to find Santa!"
 	add_child(dialogue_box)
 
 func spawn_player() -> void:
