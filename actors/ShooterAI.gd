@@ -25,6 +25,7 @@ var actor_velocity: Vector2 = Vector2.ZERO
 
 func _ready() -> void:
 	set_state(State.PATROL)
+	patrol_timer.start()
 
 func initialise(actor, weapon: ShootWeapon) -> void:
 	self.actor = actor
