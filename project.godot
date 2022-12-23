@@ -73,11 +73,14 @@ _global_script_classes=[ {
 "class": "Shooter_Enemy",
 "language": "GDScript",
 "path": "res://actors/ShooterEnemy.gd"
+<<<<<<< HEAD
 }, {
 "base": "Area2D",
 "class": "SnowBullet",
 "language": "GDScript",
 "path": "res://weapons/SnowBullet.gd"
+=======
+>>>>>>> parent of d7e602a (ice witch attack not working)
 } ]
 _global_script_class_icons={
 "Bullet": "",
@@ -92,8 +95,12 @@ _global_script_class_icons={
 "Reindeer_AI": "",
 "ShootWeapon": "",
 "Shooter_AI": "",
+<<<<<<< HEAD
 "Shooter_Enemy": "",
 "SnowBullet": ""
+=======
+"Shooter_Enemy": ""
+>>>>>>> parent of d7e602a (ice witch attack not working)
 }
 
 [application]

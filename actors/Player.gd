@@ -163,9 +163,6 @@ func get_damage_dealt(weapon: String) -> int:
 			return 20
 		"reindeer":
 			return 40
-		"snow_bullet":
-			print("hit by snow bullet")
-			return 0
 		_:
 			return 0
 
