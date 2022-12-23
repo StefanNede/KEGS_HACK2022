@@ -34,8 +34,6 @@
 
 - Inside Santa's Room
 
-	- 5 waves
-
 ### Weapons:
 
 - Fists
@@ -70,14 +68,14 @@
 
 ### Enemies:
 
-- Elves -> bad but full pathfinding (e.g. get stopped by walls)
+- Elves -> full pathfinding
 
 - Sentry Elves -> walk around in a circular area and shoot you if you go into that area
 
-- Reindeer -> at an interval (tbd) rotate towards you and charge in that position until hit an obstacle (e.g. edge of screen or you)
+- Reindeer -> at an interval (2s) rotate towards you and charge in that position until hit an obstacle (e.g. edge of screen or you)
 
-- Rudolph (comming soon) -> same attack as reindeer but interval is reduced
+- Rudolph (coming soon) -> same attack as reindeer but interval is reduced
 
-- Ice Witch -> A* pathfinding and freezes you for 1 second after hitting you 5 times
+- Ice Witch -> pathfinding and freezes you for 1 second after hitting you 5 times
 
-- Santa -> soawns other enemies
+- Santa (coming soon) -> spawns other enemies
