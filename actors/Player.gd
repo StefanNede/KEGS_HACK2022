@@ -3,7 +3,7 @@ extends KinematicBody2D
 class_name Player
 
 signal player_health_changed(new_health)
-signal pistol_ammo_left_changed(new_ammo_left)
+
 signal weapon_changed(new_weapon)
 signal died
 
@@ -18,6 +18,8 @@ onready var hurt_audio = $HurtAudio
 
 var ammo_left: int = 30
 var mag_size: int = 10
+
+var grenades_left: int = 0
 
 var weapons_available = []
 
@@ -96,6 +98,11 @@ func setCurrentWeapon(weapon) -> void:
 	# set new weapon to be visible
 	current_weapon.visible = true
 	
+	if current_weapon.name == "Pistol":
+		current_weapon.set_ammo_left(ammo_left)
+	elif current_weapon.name == "GrenadeLauncher":
+		current_weapon.set_ammo_left(grenades_left)
+	
 
 func connectWeapons() -> void:
 	# print(weapons_available)
@@ -129,8 +136,7 @@ func _physics_process(delta: float) -> void:
 	look_at(get_global_mouse_position())
 
 func handle_reload():
-	#print(current_weapon)
-	if not current_weapon.get("max_ammo"):
+	if not current_weapon.has_method("start_reload"):
 		return
 	
 	# reloads automatically if no ammo left or can be triggered by pressing r
@@ -143,7 +149,10 @@ func handle_reload():
 		#print("no ammo left")
 		pass
 	
-	emit_signal("pistol_ammo_left_changed", ammo_left)
+	if current_weapon.name == "Pistol":
+		current_weapon.set_ammo_left(ammo_left)
+	elif current_weapon.name == "GrenadeLauncher":
+		current_weapon.set_ammo_left(grenades_left)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if frozen: return

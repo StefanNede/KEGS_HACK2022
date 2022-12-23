@@ -78,7 +78,7 @@ func handle_weapon_changed(new_weapon: Node2D) -> void:
 		set_current_ammo(new_weapon.current_ammo)
 		set_ammo_left(player.ammo_left)
 		new_weapon.connect("gun_ammo_changed", self, "set_current_ammo")
-		player.connect("pistol_ammo_left_changed", self, "set_ammo_left")
+		new_weapon.connect("ammo_left_changed", self, "set_ammo_left")
 	else:
 		set_current_ammo(0)
 		set_ammo_left(0)

@@ -4,7 +4,7 @@ class_name ShootWeapon
 
 signal weapon_out_of_ammo
 signal gun_ammo_changed
-
+signal ammo_left_changed(new_ammo_left)
 
 const Bullet  = preload("res://weapons/Bullet.tscn")
 
@@ -18,6 +18,7 @@ onready var reload_audio = $ReloadAudio
 
 var max_ammo: int = 10
 var current_ammo: int = max_ammo setget set_current_ammo
+var ammo_left: int = 0 setget set_ammo_left
 
 func start_reload(available_ammo):
 	self.max_ammo = available_ammo
@@ -35,6 +36,10 @@ func set_current_ammo(new_ammo: int) -> void:
 		if current_ammo <= 0:
 			emit_signal("weapon_out_of_ammo")
 		emit_signal("gun_ammo_changed", current_ammo)
+
+func set_ammo_left(new_ammo_left: int) -> void:
+	ammo_left = new_ammo_left
+	emit_signal("ammo_left_changed", ammo_left)
 
 func shoot():
 	if current_ammo > 0 and attack_cooldown.is_stopped() and Bullet != null:
