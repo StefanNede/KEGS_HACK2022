@@ -24,7 +24,7 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[node name="ShooterEnemy" type="KinematicBody2D"]
+[node name="ShooterEnemy" type="KinematicBody2D" groups=["enemy"]]
 position = Vector2( 9, 0 )
 script = ExtResource( 3 )
 

@@ -51,4 +51,5 @@ func handle_hit(weapon: String) -> void:
 	health_stat.health -= damage_dealt
 	health_bar.value = health_stat.health
 	if health_stat.health <= 0:
+		GlobalSignals.emit_signal("enemy_died")
 		queue_free()

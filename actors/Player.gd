@@ -26,8 +26,10 @@ var current_weapon
 
 var enemies_left: int
 
+var max_health: int = 200
+
 func _ready() -> void:
-	health_stat.health = 200
+	health_stat.health = max_health
 	current_level = getLevel()
 	weapons_available = getWeaponAvailable(current_level)
 	enemies_left = getEnemiesLeft()

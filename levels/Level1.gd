@@ -12,10 +12,12 @@ const PunchEnemyTemplate = preload("res://actors/PunchEnemy.tscn")
 onready var player: Player = $Player
 onready var gui: Gui = $GUI
 
-var enemies: int = 15
+var waves = [
+	["punch","punch","punch","punch","punch"], 
+	["punch","punch","punch","punch","punch", "punch", "punch"]
+]
 
-# the number of enemies in each wave.
-var waves = [5, 7]
+var waves_enemy = [5,7]
 
 var time_between_waves: float = 5.0
 
@@ -31,11 +33,13 @@ func _ready() -> void:
 func spawn_player() -> void:
 	player.connect("died", self, "handle_player_died")
 	gui.set_player(player)
-	print(player.position.x, " ", player.position.y)
+	# print(player.position.x, " ", player.position.y)
 
 func spawn_enemies() -> void:
-	for i in range(waves[current_wave]):
-		var enemy_instance = PunchEnemyTemplate.instance()
+	for i in waves[current_wave]:
+		var enemy_instance
+		if i == "punch":
+			enemy_instance = PunchEnemyTemplate.instance()
 		enemy_instance.position.x = rand_range(-250, 1250)
 		enemy_instance.position.y = rand_range(-150,750)
 		while enemy_instance.position.y > 0 and enemy_instance.position.y < 600: 
@@ -43,8 +47,8 @@ func spawn_enemies() -> void:
 		call_deferred("add_child", enemy_instance)
 
 func handle_enemy_died():
-	waves[current_wave] -= 1
-	if waves[current_wave] <= 0:
+	waves_enemy[current_wave] -= 1
+	if waves_enemy[current_wave] <= 0:
 		if current_wave == waves.size()-1:
 			emit_signal("won")
 			handle_player_won_level()

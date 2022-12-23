@@ -6,7 +6,7 @@
 [ext_resource path="res://levels/Level2.gd" type="Script" id=4]
 [ext_resource path="res://assets/RF_Catacombs/mainlevbuild.png" type="Texture" id=5]
 [ext_resource path="res://assets/RF_Catacombs/candleA_01.png" type="Texture" id=6]
-[ext_resource path="res://actors/PunchEnemy.tscn" type="PackedScene" id=7]
+[ext_resource path="res://BulletManager.gd" type="Script" id=7]
 [ext_resource path="res://actors/Player.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/RF_Catacombs/decorative.png" type="Texture" id=9]
 
@@ -186,11 +186,8 @@ format = 1
 [node name="Player" parent="." instance=ExtResource( 8 )]
 position = Vector2( 291, 65 )
 
-[node name="PunchEnemy" parent="." instance=ExtResource( 7 )]
-position = Vector2( 119, 428 )
-
-[node name="PunchEnemy2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 840, 72 )
+[node name="BulletManager" type="Node2D" parent="."]
+script = ExtResource( 7 )
 
 [node name="ImpactManager" type="Node2D" parent="."]
 script = ExtResource( 1 )
