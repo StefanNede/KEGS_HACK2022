@@ -22,6 +22,8 @@ func _ready() -> void:
 
 func getLevel() -> int:
 	var current_scene: String = get_tree().get_current_scene().get_name()
+	if current_scene == "Survival":
+		return 100
 	var current_level: int = int(current_scene[current_scene.length()-1])
 	return current_level
 

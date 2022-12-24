@@ -2,8 +2,11 @@ extends CanvasLayer
 
 onready var title = $PanelContainer/MarginContainer/Rows/Title
 
-func set_title(win: bool):
-	if win:
+func set_title(win: bool, custom = ""):
+	if custom != "":
+		title.text = custom
+		title.modulate = Color.aquamarine
+	elif win:
 		title.text = "YOU WIN!"
 		title.modulate = Color.green
 	else:

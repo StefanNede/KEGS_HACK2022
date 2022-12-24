@@ -6,8 +6,7 @@ func _on_PlayCampaign_pressed():
 
 
 func _on_PlaySurvival_pressed():
-	get_tree().change_scene("res://UI/ComingSoonScreen.tscn")
-
+	get_tree().change_scene("res://levels/Survival.tscn")
 
 func _on_Quit_pressed():
 	get_tree().quit()

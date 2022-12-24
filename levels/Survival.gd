@@ -17,9 +17,12 @@ const DialogueBox = preload("res://UI/Dialogue.tscn")
 onready var bullet_manager = $BulletManager
 onready var player: Player = $Player
 onready var gui: Gui = $GUI
+onready var pistol = get_node("./Player/WeaponManager/Pistol")
+onready var grenade_launcher = get_node("./Player/WeaponManager/GrenadeLauncher")
 
+var enemy_options = ["punch", "shoot", "reindeer", "witch"]
 var waves = [
-	["punch","punch"]
+	["punch","punch", "punch"]
 ]
 var waves_enemy = [2]
 var time_between_waves: float = 5.0
@@ -81,8 +84,12 @@ func spawn_enemies() -> void:
 			call_deferred("add_child", enemy_instance)
 
 func create_new_wave():
+	# there will be 3 * wave number enemies per wave
+	var enemies_to_add = 3 * (current_wave+1)
 	var new_wave = []
-	new_wave.append("punch")
+	while enemies_to_add > 0:
+		new_wave.append(enemy_options[int(rand_range(0,len(enemy_options)))])
+		enemies_to_add -= 1
 	waves.append(new_wave)
 	waves_enemy.append(new_wave.size())
 
@@ -95,6 +102,14 @@ func handle_enemy_died():
 		# set health back to full
 		player.health_stat.health = player.max_health
 		player.emit_signal("player_health_changed", player.max_health)
+		
+		# set ammo back to full
+		player.ammo_left = 15
+		#pistol.current_ammo = pistol.max_ammo
+		pistol.set_current_ammo(pistol.max_ammo)
+		#grenade_launcher.current_ammo = grenade_launcher.max_ammo
+		grenade_launcher.set_current_ammo(grenade_launcher.max_ammo)
+		
 		emit_signal("wave_changed", current_wave)
 		# wait 5 seconds
 		var t = Timer.new()
@@ -123,7 +138,7 @@ func spawn_player() -> void:
 func handle_player_died() -> void:
 	var game_over = GameOverScreen.instance()
 	add_child(game_over)
-	game_over.set_title(false)
+	game_over.set_title(false, "you survived " + str(current_wave) + " rounds")
 	get_tree().paused = true
 
 func handle_player_won_level() -> void:
