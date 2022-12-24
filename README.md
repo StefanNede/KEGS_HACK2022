@@ -6,7 +6,7 @@
 
 - Campaign - includes the levels specified below
 
-- Survival - how many waves of enemies can you survive?
+- Survival - waves of enemies bombard the player with each wave having the wave number * 3 randomly chosen enemies. At the end of each wave ammo and health refills. How long can you survive?
 
 ### Levels:
 
@@ -82,5 +82,6 @@
 
 - Santa (coming soon) -> spawns other enemies
 
-# Play throughs of the game can be seen through the links below:
+
+## Play throughs of the game can be seen through the links below:
 
