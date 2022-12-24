@@ -1,6 +1,6 @@
 # **Killing Santa**
 
-> A christmas themed top down shooter game  
+> A christmas themed top down shooter game (run the executable file to play the game)
 
 ### Game Modes:
 
