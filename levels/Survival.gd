@@ -24,7 +24,7 @@ var enemy_options = ["punch", "shoot", "reindeer", "witch"]
 var waves = [
 	["punch","punch", "punch"]
 ]
-var waves_enemy = [2]
+var waves_enemy = [3]
 var time_between_waves: float = 5.0
 var current_wave = 0
 
