@@ -1,10 +1,12 @@
 # **Killing Santa**
 
+> A christmas themed top down shooter game  
+
 ### Game Modes:
 
 - Campaign - includes the levels specified below
 
-- Survival - how many waves of enemies can you survive?
+- Survival - waves of enemies bombard the player with each wave having the wave number * 3 randomly chosen enemies. At the end of each wave ammo and health refills. How long can you survive?
 
 ### Levels:
 
@@ -60,7 +62,7 @@
 
 	- Regen of 1 second
 
-- Rudolph's Nose
+- Rudolph's Nose (coming soon)
 
 	- Stuns everyone on the map
 
@@ -79,3 +81,12 @@
 - Ice Witch -> pathfinding and freezes you for 1 second after hitting you 5 times
 
 - Santa (coming soon) -> spawns other enemies
+
+
+## Play throughs of the game can be seen through the links below:
+* Campaign mode: https://youtu.be/iCtY4Q1e3QE
+* Survival mode: https://youtu.be/EB9MvyGWSS4
+
+### Thanks To:
+* Sound effects from: https://pixabay.com/sound-effects/
+* Art from: https://kenney.nl/assets/ and https://github.com/Dominus11
