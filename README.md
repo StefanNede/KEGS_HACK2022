@@ -85,3 +85,7 @@
 
 ## Play throughs of the game can be seen through the links below:
 
+
+
+> Sound effects from: https://pixabay.com/sound-effects/
+> Art from: https://kenney.nl/assets/ and https://github.com/Dominus11
