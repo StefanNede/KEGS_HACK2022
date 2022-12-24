@@ -88,5 +88,5 @@
 * Survival mode: https://youtu.be/EB9MvyGWSS4
 
 ### Thanks To:
-Sound effects from: https://pixabay.com/sound-effects/
-Art from: https://kenney.nl/assets/ and https://github.com/Dominus11
+* Sound effects from: https://pixabay.com/sound-effects/
+* Art from: https://kenney.nl/assets/ and https://github.com/Dominus11
