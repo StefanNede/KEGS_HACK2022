@@ -1,5 +1,7 @@
 # **Killing Santa**
 
+> A christmas themed top down shooter game  
+
 ### Game Modes:
 
 - Campaign - includes the levels specified below
@@ -60,7 +62,7 @@
 
 	- Regen of 1 second
 
-- Rudolph's Nose
+- Rudolph's Nose (coming soon)
 
 	- Stuns everyone on the map
 
@@ -79,3 +81,6 @@
 - Ice Witch -> pathfinding and freezes you for 1 second after hitting you 5 times
 
 - Santa (coming soon) -> spawns other enemies
+
+# Play throughs of the game can be seen through the links below:
+
