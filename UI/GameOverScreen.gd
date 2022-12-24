@@ -16,7 +16,7 @@ func _on_Quit_pressed():
 func _on_MainMenuButton_pressed():
 	get_tree().paused = false
 	get_tree().change_scene("res://UI/MainMenuScreen.tscn")
-
+ 
 
 func _on_LevelSelect_pressed():
 	get_tree().paused = false

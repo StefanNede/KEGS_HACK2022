@@ -46,6 +46,8 @@ func getEnemiesLeft() -> int:
 
 func getLevel() -> int:
 	var current_scene: String = get_tree().get_current_scene().get_name()
+	if current_scene == "Survival":
+		return 100
 	var current_level: int = int(current_scene[current_scene.length()-1])
 	return current_level
 
@@ -71,6 +73,13 @@ func getWeaponAvailable(level: int) -> Array:
 			weapons.append($WeaponManager/Pistol)
 			weapons.append($WeaponManager/GrenadeLauncher)
 		5:
+			# fists, swords, pistol, grenade launcher
+			weapons.append($WeaponManager/Fists)
+			weapons.append($WeaponManager/Sword)
+			weapons.append($WeaponManager/Pistol)
+			weapons.append($WeaponManager/GrenadeLauncher)
+			weapons.append($WeaponManager/RudolphNose)
+		100:
 			# fists, swords, pistol, grenade launcher
 			weapons.append($WeaponManager/Fists)
 			weapons.append($WeaponManager/Sword)
