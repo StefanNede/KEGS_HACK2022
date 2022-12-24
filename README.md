@@ -84,8 +84,8 @@
 
 
 ## Play throughs of the game can be seen through the links below:
-Campaign mode: https://youtu.be/iCtY4Q1e3QE
-Survival mode: 
+* Campaign mode: https://youtu.be/iCtY4Q1e3QE
+* Survival mode: https://youtu.be/EB9MvyGWSS4
 
 ### Thanks To:
 Sound effects from: https://pixabay.com/sound-effects/
